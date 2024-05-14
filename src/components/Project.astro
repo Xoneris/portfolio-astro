@@ -1,0 +1,34 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+	title: string;
+    image: string;
+	description: string;
+    stack: Array<string>
+	github: string;
+    demo: string;
+}
+
+const {title, image, description, stack, github, demo} = Astro.props;
+---
+
+<div class="flex justify-between w-2/3 bg-slate-800 rounded-xl border m-4">
+    <div class="w-1/2">
+        <Image src={"/projects/"+image} alt="Metroidvania.GG" width={720} height={540} class="rounded-xl">
+    </div>
+    <div class="flex flex-col justify-between items-center p-2 w-1/2">
+        <p class="font-bold text-2xl">{title}</p>
+        <p>{description}</p>
+        <div class="flex items-center">
+            <p>Stack used: </p>
+            {stack.map((tech) => {
+                return <Image src={"/icons/"+tech+".svg"} alt={tech} width={48} height={48} title={tech} class="p-2"/>
+            })}
+        </div>
+        <div class="flex w-full justify-center items-center">
+            <p><a href={github}><Image src={"/icons/GitHub.svg"} alt="Github" width={40} height={40} title="Github"/></a></p>
+            <p><a href={demo}>Demo</a></p>
+        </div>
+    </div>
+</div>
