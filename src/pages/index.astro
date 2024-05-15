@@ -5,31 +5,32 @@ import { Image } from 'astro:assets';
 ---
 
 <Layout>
-	<header class="flex w-full justify-between items-end p-1 5g-slate-800 text-slate-200 border-b border-b-slate-400 fixed top-0 bg-slate-950">
+	<header class="flex w-full h-14 justify-between items-center p-1 5g-slate-800 text-slate-200 border-b border-b-slate-400 fixed top-0 bg-slate-950">
 		<div>
-			<ul class="flex">
-				<li>GitHub</li>
-				<li>LinkedIn</li>
-				<li>E-Mail</li>
-			</ul>
+			<p class="text-3xl font-bold">Kely.dev</p>
 		</div>
 		<nav>
 			<ul class="flex">
-				<li class="text-center border border-transparent hover:text-slate-400"><a href="#About">About</a></li>
-				<li class="text-center"><a href="#Skills">Skills</a></li>
-				<li class="text-center"><a href="#Projects">Projects</a></li>
+				<li class="text-center text-2xl"><a href="#About">About</a></li>
+				<li class="text-center text-2xl"><a href="#Skills">Skills</a></li>
+				<li class="text-center text-2xl"><a href="#Projects">Projects</a></li>
 			</ul>
 		</nav>
 	</header>
 
 	<main class="flex-grow text-slate-400">
 
-		<section class="flex justify-center items-center bg-slate-900 h-screen" id="About">
-			<div class="flex justify-around items-center w-1/2">
+		<section class="flex justify-center items-center bg-slate-900 min-h-screen" id="About">
+			<div class="flex justify-around items-center w-2/3 border rounded-xl h-80 bg-slate-950">
 				<Image src="/kely-avatar.png" alt="Kely picture" width={300} height={300} class="rounded-full"/>
-				<div>
-					<p class="text-4xl font-bold">Hi, I am Kely!</p>
+				<div class="flex flex-col justify-around items-start h-full">
+					<p class="text-6xl font-bold">Hi, I am Kely!</p>
 					<p>A Webdeveloper from Switzerland</p>
+					<ul class="flex">
+						<li><Image src="/icons/GitHub.svg" alt="GitHub Logo" width={40} height={40} /></li>
+						<li><Image src="/icons/LinkedIn.svg" alt="GitHub Logo" width={40} height={40} /></li>
+						<li>E-Mail</li>
+					</ul>
 				</div>
 			</div>
 			
@@ -37,13 +38,13 @@ import { Image } from 'astro:assets';
 
 		</section>
 
-		<section class="flex justify-center items-center flex-col bg-slate-800 h-screen" id="Skills">
+		<section class="flex justify-center items-center flex-col bg-slate-800 min-h-screen" id="Skills">
 
 			<p class="text-3xl font-bold m-20">Technologies I have used</p>
 
-			<div class="flex flex-wrap w-full justify-around">
+			<div class="flex flex-wrap flex-col w-full justify-around items-center">
 
-				<div class="border rounded-md w-1/5 p-2 m-2 bg-slate-900">
+				<div class="border rounded-xl w-2/3 p-2 m-2 bg-slate-900">
 					<p class="text-xl font-bold pb-2">Confident In Using</p>
 					<div class="flex justify-evenly items-center  w-full flex-wrap">
 						<Image src="/icons/HTML5.svg" alt="HTML5 Logo" width={80} height={80}/>
@@ -54,12 +55,12 @@ import { Image } from 'astro:assets';
 					</div>
 				</div>
 
-				<div class="border rounded-md w-1/5 p-2 m-2 bg-slate-900">
+				<div class="border rounded-xl w-2/3 p-2 m-2 bg-slate-900">
 					<p class="text-xl font-bold pb-2">Basic Understanding</p>
 					<div class="flex justify-around w-full flex-wrap">
 						<Image src="/icons/Python.svg" alt="Python Logo" width={80} height={80}/>
 						<Image src="/icons/Django.svg" alt="Django Logo" width={80} height={80} />
-						<Image src="/icons/Django REST.svg" alt="Django REST Logo" width={80} height={80} />
+						<!-- <Image src="/icons/Django REST.svg" alt="Django REST Logo" width={80} height={80} /> -->
 						<Image src="/icons/Bootstrap.svg" alt="Bootstrap Logo" width={80} height={80} />
 						<Image src="/icons/WordPress.svg" alt="Wordpress Logo" width={80} height={80} />
 						<Image src="/icons/GitHub.svg" alt="GitHub Logo" width={80} height={80} />
@@ -67,7 +68,7 @@ import { Image } from 'astro:assets';
 					</div>
 				</div>
 
-				<div class="border rounded-md w-1/5 p-2 m-2 bg-slate-900">
+				<div class="border rounded-xl w-2/3 p-2 m-2 bg-slate-900">
 					<p class="text-xl font-bold pb-2">Experimenting & Learning</p>
 					<div class="flex justify-around w-full flex-wrap">
 						<Image src="/icons/Astro.svg" alt="Astro Logo" width={80} height={80}/>
@@ -77,7 +78,7 @@ import { Image } from 'astro:assets';
 					</div>
 				</div>
 
-				<div class="border rounded-md w-1/5 p-2 m-2 bg-slate-900">
+				<div class="border rounded-xl w-2/3 p-2 m-2 bg-slate-900">
 					<p class="text-xl font-bold pb-2">Haven't Used In A Long Time</p>
 					<div class="flex justify-around w-full flex-wrap">
 						<Image src="/icons/PHP.svg" alt="PHP Logo" width={80} height={80}/>
@@ -89,8 +90,8 @@ import { Image } from 'astro:assets';
 			</div>
 		</section>
 
-		<section class="flex flex-col justify-center items-center bg-slate-700 h-screen" id="Projects">
-			<p>Projects</p>
+		<section class="flex flex-col justify-center items-center bg-slate-700 min-h-screen" id="Projects">
+			<p class="text-3xl font-bold">Projects</p>
 			<Project 
 				title="Metroidvania.GG"
 				image="metroidvaniagg.png" 
@@ -102,21 +103,19 @@ import { Image } from 'astro:assets';
 			<Project 
 				title="Helldivers 2 Randomizer"
 				image="helldivers2-randomizer.png"
-				description="adf"
+				description="asdf adf adfadfadf adf adfadfa adfadf adf adfadfadfadf adf adfadf "
 				stack={["React"]}
 				github="https://github.com/Xoneris/Helldivers2-randomizer"
 				demo="https://xoneris.github.io/Helldivers2-randomizer/"
 			/>
-			<!-- <div class="flex justify-between w-2/3">
-				<div>
-					<Image src="/projects/metroidvaniagg.png" alt="Metroidvania.GG" width={720} height={540} class="rounded-xl">
-				</div>
-				<div class="flex flex-grow flex-col justify-between p-2">
-					<p>Title</p>
-					<p>Description</p>
-					<p>Links</p>
-				</div>
-			</div> -->
+			<Project 
+				title="My Portfolio"
+				image="metroidvaniagg.png"
+				description="Instead of using a pagebuilder or a portfolio template I thought creating my portfolio would be great oppurtunity to explore and learn some new technologies I haven't used before."
+				stack={["Astro","Tailwind CSS", "TypeScript"]}
+				github=""
+				demo=""
+			/>
 		</section>
 	</main>
 
