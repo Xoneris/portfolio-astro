@@ -20,15 +20,15 @@ import { Image } from 'astro:assets';
 
 	<main class="flex-grow text-slate-400">
 
-		<section class="flex justify-center items-center bg-slate-900 min-h-screen" id="About">
-			<div class="flex justify-around items-center w-2/3 border rounded-xl h-80 bg-slate-950">
+		<section class="flex justify-center items-center bg-slate-800 min-h-screen" id="About">
+			<div class="flex justify-around items-center w-2/3 border rounded-xl h-80 bg-slate-900">
 				<Image src="/kely-avatar.png" alt="Kely picture" width={300} height={300} class="rounded-full"/>
 				<div class="flex flex-col justify-around items-start h-full">
 					<p class="text-6xl font-bold">Hi, I am Kely!</p>
-					<p>A Webdeveloper from Switzerland</p>
+					<p>A Webdeveloper from Switzerland. Passionate about creating frontends and learning about new technologies.</p>
 					<ul class="flex">
-						<li><Image src="/icons/GitHub.svg" alt="GitHub Logo" width={40} height={40} /></li>
-						<li><Image src="/icons/LinkedIn.svg" alt="GitHub Logo" width={40} height={40} /></li>
+						<li><Image src="/icons/GitHub.svg" alt="GitHub Logo" width={30} height={30} /></li>
+						<li><Image src="/icons/LinkedIn.svg" alt="GitHub Logo" width={30} height={30} /></li>
 						<li>E-Mail</li>
 					</ul>
 				</div>
@@ -38,9 +38,9 @@ import { Image } from 'astro:assets';
 
 		</section>
 
-		<section class="flex justify-center items-center flex-col bg-slate-800 min-h-screen" id="Skills">
+		<section class="flex justify-center items-center flex-col bg-slate-700 min-h-screen" id="Skills">
 
-			<p class="text-3xl font-bold m-20">Technologies I have used</p>
+			<p class="text-4xl font-bold m-20">Skills</p>
 
 			<div class="flex flex-wrap flex-col w-full justify-around items-center">
 
@@ -90,32 +90,36 @@ import { Image } from 'astro:assets';
 			</div>
 		</section>
 
-		<section class="flex flex-col justify-center items-center bg-slate-700 min-h-screen" id="Projects">
-			<p class="text-3xl font-bold">Projects</p>
-			<Project 
+		<section class="flex flex-col justify-around items-center bg-slate-800 min-h-screen" id="Projects">
+			<p class="text-4xl font-bold">Projects</p>
+			<div class="flex flex-wrap w-2/3 border justify-center bg-slate-900 rounded-xl">
+				<Project 
 				title="Metroidvania.GG"
 				image="metroidvaniagg.png" 
 				description="Metroidvanias are a subgerne of Videogames. 95% of Metroidvanias are made by either one person or a very small team. The purpose of this Website is to cataloge and display these games. Giving developers another way to advertise their game and giving fans a website to find more games in this gerne."
 				stack={["React","Django","MySQL","Vercel"]}
 				github="https://github.com/Xoneris/Metroidvania.GG-Frontend" 
 				demo="https://metroidvaniagg.vercel.app"
-			/>
-			<Project 
-				title="Helldivers 2 Randomizer"
-				image="helldivers2-randomizer.png"
-				description="asdf adf adfadfadf adf adfadfa adfadf adf adfadfadfadf adf adfadf "
-				stack={["React"]}
-				github="https://github.com/Xoneris/Helldivers2-randomizer"
-				demo="https://xoneris.github.io/Helldivers2-randomizer/"
-			/>
-			<Project 
-				title="My Portfolio"
-				image="metroidvaniagg.png"
-				description="Instead of using a pagebuilder or a portfolio template I thought creating my portfolio would be great oppurtunity to explore and learn some new technologies I haven't used before."
-				stack={["Astro","Tailwind CSS", "TypeScript"]}
-				github=""
-				demo=""
-			/>
+				/>
+				<Project 
+					title="Helldivers 2 Randomizer"
+					image="helldivers2-randomizer.png"
+					description="asdf adf adfadfadf adf adfadfa adfadf adf adfadfadfadf adf adfadf "
+					stack={["React"]}
+					github="https://github.com/Xoneris/Helldivers2-randomizer"
+					demo="https://xoneris.github.io/Helldivers2-randomizer/"
+				/>
+				<Project 
+					title="My Portfolio"
+					image="metroidvaniagg.png"
+					description="Instead of using a pagebuilder or a portfolio template I thought creating my portfolio would be great oppurtunity to explore and learn some new technologies I haven't used before."
+					stack={["Astro","Tailwind CSS", "TypeScript"]}
+					github=""
+					demo=""
+				/>
+			</div>
+			
+			
 		</section>
 	</main>
 
