@@ -1,0 +1,55 @@
+---
+import { Image } from 'astro:assets';
+---
+
+<section class="flex justify-center items-center bg-slate-800 min-h-screen" id="About">
+    <div class="flex justify-around items-center w-2/5  rounded-xl h-80 ">
+        <Image src="/kely-avatar.png" alt="Kely picture" width={300} height={300} class="rounded-full p-2 border"/>
+        <div class="flex flex-col justify-around items-start w-3/4 h-full p-4">
+            <p class="text-4xl font-bold">Hi, I am <span class="name-animation">Kely</span>!</p>
+            <p class="text-xl">A Webdeveloper from Switzerland. Passionate about creating frontends and learning about new technologies.</p>
+            <ul class="flex">
+                <li class="w-28"><Image src="/icons/GitHub.svg" alt="GitHub Logo" width={30} height={30} /></li>
+                <li class="w-28"><Image src="/icons/LinkedIn.svg" alt="LinkedIn Logo" width={30} height={30} /></li>
+                <li class="w-28">E-Mail</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<style>
+
+  .name-animation {
+    background: linear-gradient(45deg, red, orange);
+    background-size: 200%, 200%;
+    -webkit-background-clip: text;
+            background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: AnimateBG 5s ease infinite;
+          animation: AnimateBG 5s ease infinite;
+  }
+    
+  @-webkit-keyframes AnimateBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes AnimateBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+</style>

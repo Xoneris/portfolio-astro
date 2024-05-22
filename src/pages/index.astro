@@ -1,142 +1,31 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Project from '../components/Project.astro';
-import { Image } from 'astro:assets';
+import Skills from '../components/Skills.astro';
+import About from '../components/About.astro'
+import Projects from '../components/Projects.astro';
 ---
 
 <Layout>
-	<header class="flex w-full h-14 justify-between items-center p-1 5g-slate-800 text-slate-200 border-b border-b-slate-400 fixed top-0 bg-slate-950">
+	<header class="flex w-full h-14 justify-between items-center p-1 5g-slate-800 text-slate-200 border-b border-b-slate-400 fixed top-0 bg-slate-950 z-10 pr-16 pl-16 rounded-br-3xl rounded-bl-3xl">
 		<div>
 			<p class="text-3xl font-bold">Kely.dev</p>
 		</div>
 		<nav>
 			<ul class="flex">
-				<li class="text-center text-2xl"><a href="#About">About</a></li>
-				<li class="text-center text-2xl"><a href="#Skills">Skills</a></li>
-				<li class="text-center text-2xl"><a href="#Projects">Projects</a></li>
+				<li class="text-center text-2xl w-28"><a href="#About">About</a></li>
+				<li class="text-center text-2xl w-28"><a href="#Skills">Skills</a></li>
+				<li class="text-center text-2xl w-28"><a href="#Projects">Projects</a></li>
 			</ul>
 		</nav>
 	</header>
 
 	<main class="flex-grow text-slate-400">
-
-		<section class="flex justify-center items-center bg-slate-800 min-h-screen" id="About">
-			<div class="flex justify-around items-center w-2/3 border rounded-xl h-80 bg-slate-900">
-				<Image src="/kely-avatar.png" alt="Kely picture" width={300} height={300} class="rounded-full"/>
-				<div class="flex flex-col justify-around items-start h-full">
-					<p class="text-6xl font-bold">Hi, I am Kely!</p>
-					<p>A Webdeveloper from Switzerland. Passionate about creating frontends and learning about new technologies.</p>
-					<ul class="flex">
-						<li><Image src="/icons/GitHub.svg" alt="GitHub Logo" width={30} height={30} /></li>
-						<li><Image src="/icons/LinkedIn.svg" alt="GitHub Logo" width={30} height={30} /></li>
-						<li>E-Mail</li>
-					</ul>
-				</div>
-			</div>
-			
-
-
-		</section>
-
-		<section class="flex justify-center items-center flex-col bg-slate-700 min-h-screen" id="Skills">
-
-			<p class="text-4xl font-bold m-20">Skills</p>
-
-			<div class="flex flex-wrap flex-col w-full justify-around items-center">
-
-				<div class="border rounded-xl w-2/3 p-2 m-2 bg-slate-900">
-					<p class="text-xl font-bold pb-2">Confident In Using</p>
-					<div class="flex justify-evenly items-center  w-full flex-wrap">
-						<Image src="/icons/HTML5.svg" alt="HTML5 Logo" width={80} height={80}/>
-						<Image src="/icons/CSS3.svg" alt="CSS3 Logo" width={80} height={80} />
-						<Image src="/icons/JavaScript.svg" alt="JavaScript Logo" width={80} height={80} />
-						<Image src="/icons/React.svg" alt="React Logo" width={80} height={80} />
-						<Image src="/icons/MySQL.svg" alt="MySQL Logo" width={80} height={80} />
-					</div>
-				</div>
-
-				<div class="border rounded-xl w-2/3 p-2 m-2 bg-slate-900">
-					<p class="text-xl font-bold pb-2">Basic Understanding</p>
-					<div class="flex justify-around w-full flex-wrap">
-						<Image src="/icons/Python.svg" alt="Python Logo" width={80} height={80}/>
-						<Image src="/icons/Django.svg" alt="Django Logo" width={80} height={80} />
-						<!-- <Image src="/icons/Django REST.svg" alt="Django REST Logo" width={80} height={80} /> -->
-						<Image src="/icons/Bootstrap.svg" alt="Bootstrap Logo" width={80} height={80} />
-						<Image src="/icons/WordPress.svg" alt="Wordpress Logo" width={80} height={80} />
-						<Image src="/icons/GitHub.svg" alt="GitHub Logo" width={80} height={80} />
-						<Image src="/icons/Vercel.svg" alt="Vercel Logo" width={80} height={80} />
-					</div>
-				</div>
-
-				<div class="border rounded-xl w-2/3 p-2 m-2 bg-slate-900">
-					<p class="text-xl font-bold pb-2">Experimenting & Learning</p>
-					<div class="flex justify-around w-full flex-wrap">
-						<Image src="/icons/Astro.svg" alt="Astro Logo" width={80} height={80}/>
-						<Image src="/icons/Next.js.svg" alt="Next.js Logo" width={80} height={80} />
-						<Image src="/icons/TypeScript.svg" alt="TypeScript Logo" width={80} height={80} />
-						<Image src="/icons/Tailwind CSS.svg" alt="Tailwind CSS Logo" width={80} height={80} />
-					</div>
-				</div>
-
-				<div class="border rounded-xl w-2/3 p-2 m-2 bg-slate-900">
-					<p class="text-xl font-bold pb-2">Haven't Used In A Long Time</p>
-					<div class="flex justify-around w-full flex-wrap">
-						<Image src="/icons/PHP.svg" alt="PHP Logo" width={80} height={80}/>
-						<Image src="/icons/jQuery.svg" alt="jQuery Logo" width={80} height={80} />
-						<Image src="/icons/TYPO3.svg" alt="TYPO3 Logo" width={80} height={80} />
-					</div>
-				</div>
-
-			</div>
-		</section>
-
-		<section class="flex flex-col justify-around items-center bg-slate-800 min-h-screen" id="Projects">
-			<p class="text-4xl font-bold">Projects</p>
-			<div class="flex flex-wrap w-2/3 border justify-center bg-slate-900 rounded-xl">
-				<Project 
-				title="Metroidvania.GG"
-				image="metroidvaniagg.png" 
-				description="Metroidvanias are a subgerne of Videogames. 95% of Metroidvanias are made by either one person or a very small team. The purpose of this Website is to cataloge and display these games. Giving developers another way to advertise their game and giving fans a website to find more games in this gerne."
-				stack={["React","Django","MySQL","Vercel"]}
-				github="https://github.com/Xoneris/Metroidvania.GG-Frontend" 
-				demo="https://metroidvaniagg.vercel.app"
-				/>
-				<Project 
-					title="Helldivers 2 Randomizer"
-					image="helldivers2-randomizer.png"
-					description="asdf adf adfadfadf adf adfadfa adfadf adf adfadfadfadf adf adfadf "
-					stack={["React"]}
-					github="https://github.com/Xoneris/Helldivers2-randomizer"
-					demo="https://xoneris.github.io/Helldivers2-randomizer/"
-				/>
-				<Project 
-					title="My Portfolio"
-					image="metroidvaniagg.png"
-					description="Instead of using a pagebuilder or a portfolio template I thought creating my portfolio would be great oppurtunity to explore and learn some new technologies I haven't used before."
-					stack={["Astro","Tailwind CSS", "TypeScript"]}
-					github=""
-					demo=""
-				/>
-			</div>
-			
-			
-		</section>
+		<About/>
+		<Skills/>
+		<Projects/>
 	</main>
 
 	<footer class="text-center p-1 5g-slate-950 text-slate-300 border-t border-t-slate-400 bg-slate-950">
 		Footer
 	</footer>
 </Layout>
-
-<style>
-
-	
-	li {
-		display: block;
-		width: 105px;
-	}
-
-	/* img {
-		border-radius: 50%;
-	} */
-</style>
