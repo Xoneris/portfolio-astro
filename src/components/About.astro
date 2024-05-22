@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+const email = "mailto:hello@kely.dev"
 ---
 
 <section class="flex justify-center items-center bg-slate-800 min-h-screen" id="About">
@@ -9,9 +10,9 @@ import { Image } from 'astro:assets';
             <p class="text-4xl font-bold">Hi, I am <span class="name-animation">Kely</span>!</p>
             <p class="text-xl">A Webdeveloper from Switzerland. Passionate about creating frontends and learning about new technologies.</p>
             <ul class="flex">
-                <li class="w-28"><Image src="/icons/GitHub.svg" alt="GitHub Logo" width={30} height={30} /></li>
-                <li class="w-28"><Image src="/icons/LinkedIn.svg" alt="LinkedIn Logo" width={30} height={30} /></li>
-                <li class="w-28">E-Mail</li>
+                <li class="w-28"><a href="https://github.com/Xoneris" target="_blank"><Image src="/icons/GitHub.svg" alt="GitHub Logo" width={30} height={30} /></a></li>
+                <li class="w-28"><a href="https://www.linkedin.com/in/kely-mätzler-23b1a4301/" target="_blank"><Image src="/icons/LinkedIn.svg" alt="LinkedIn Logo" width={30} height={30} /></a></li>
+                <li class="w-28"><a href={email} target="_blank">E-Mail</a></li>
             </ul>
         </div>
     </div>

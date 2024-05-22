@@ -8,7 +8,7 @@ import Project from '../components/Project.astro';
         <Project 
         title="Metroidvania.GG"
         image="metroidvaniagg.png" 
-        description="Metroidvanias are a subgerne of Videogames. 95% of Metroidvanias are made by either one person or a very small team. The purpose of this Website is to cataloge and display these games. Giving developers another way to advertise their game and giving fans a website to find more games in this gerne."
+        description="Metroidvanias are a subgerne of videogames. 95% of Metroidvanias are made by either one person or a very small team. The purpose of this Website is to cataloge and display these games. Giving developers another way to advertise their game and giving fans a website to find more games in this gerne."
         stack={["React","Django","MySQL","Vercel"]}
         github="https://github.com/Xoneris/Metroidvania.GG-Frontend" 
         demo="https://metroidvaniagg.vercel.app"
@@ -16,7 +16,7 @@ import Project from '../components/Project.astro';
         <Project 
             title="Helldivers 2 Randomizer"
             image="helldivers2-randomizer.png"
-            description="hide adf adfadfadf adf adfadfa adfadf adf adfadfadfadf adf adfadf "
+            description="Helldivers 2 is a videogame where you go on missions fighting aliens with your friends. On every mission you can select a loadout of weapons and gadgets to help you. This randomizer takes all the available opions and mixes them around and gives you a random assortment of gadgets for you to take with you on your next mission!"
             stack={["React"]}
             github="https://github.com/Xoneris/Helldivers2-randomizer"
             demo="https://xoneris.github.io/Helldivers2-randomizer/"
@@ -53,9 +53,9 @@ import Project from '../components/Project.astro';
 			if (entry.isIntersecting) {
 				entry.target.classList.add("show")
 			}
-			else {
-				entry.target.classList.remove("show")
-			}
+			// else {
+			// 	entry.target.classList.remove("show")
+			// }
 		})
 	})
 	const hiddenElements = document.querySelectorAll(".hide");
