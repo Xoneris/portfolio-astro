@@ -1,82 +1,31 @@
 ---
 import { Image } from 'astro:assets';
+import SkillsSubsection from './SkillsSubsection.astro';
 ---
 
 <section class="flex justify-center items-center flex-col bg-slate-700 min-h-screen" id="Skills">
-    <p class="text-4xl font-bold m-20">Skills</p>
+    <p class="text-6xl font-bold m-20 title-font underline">Skills</p>
     <div class="flex flex-wrap flex-col w-full justify-around items-center">
 
-        <div class="border rounded-xl w-2/3 p-2 m-2 bg-slate-900 hide">
-            <p class="text-xl font-bold pb-2">Confident In Using</p>
-            <div class="flex justify-evenly items-center  w-full flex-wrap">
-                <Image src="/icons/HTML5.svg" alt="HTML5 Logo" width={80} height={80}/>
-                <Image src="/icons/CSS3.svg" alt="CSS3 Logo" width={80} height={80} />
-                <Image src="/icons/JavaScript.svg" alt="JavaScript Logo" width={80} height={80} />
-                <Image src="/icons/React.svg" alt="React Logo" width={80} height={80} />
-                <Image src="/icons/MySQL.svg" alt="MySQL Logo" width={80} height={80} />
-            </div>
-        </div>
+        <SkillsSubsection 
+            title="Confident In Using"
+            stack={["HTML5","CSS3","JavaScript","React","MySQL"]}
+        />
 
-        <div class="border rounded-xl w-2/3 p-2 m-2 bg-slate-900 hide">
-            <p class="text-xl font-bold pb-2">Basic Understanding</p>
-            <div class="flex justify-around w-full flex-wrap">
-                <Image src="/icons/Python.svg" alt="Python Logo" width={80} height={80}/>
-                <Image src="/icons/Django.svg" alt="Django Logo" width={80} height={80} />
-                <Image src="/icons/Bootstrap.svg" alt="Bootstrap Logo" width={80} height={80} />
-                <Image src="/icons/WordPress.svg" alt="Wordpress Logo" width={80} height={80} />
-                <Image src="/icons/GitHub.svg" alt="GitHub Logo" width={80} height={80} />
-                <Image src="/icons/Vercel.svg" alt="Vercel Logo" width={80} height={80} />
-            </div>
-        </div>
+        <SkillsSubsection
+            title="Basic Understanding"
+            stack={["Python","Django","Bootstrap","WordPress","GitHub","Vercel"]}
+        />
 
-        <div class="border rounded-xl w-2/3 p-2 m-2 bg-slate-900 hide">
-            <p class="text-xl font-bold pb-2">Experimenting & Learning</p>
-            <div class="flex justify-around w-full flex-wrap">
-                <Image src="/icons/Astro.svg" alt="Astro Logo" width={80} height={80}/>
-                <Image src="/icons/Next.js.svg" alt="Next.js Logo" width={80} height={80} />
-                <Image src="/icons/TypeScript.svg" alt="TypeScript Logo" width={80} height={80} />
-                <Image src="/icons/Tailwind CSS.svg" alt="Tailwind CSS Logo" width={80} height={80} />
-            </div>
-        </div>
+        <SkillsSubsection
+            title="Experimenting & Learning"
+            stack={["Astro","Next.js","TypeScript","Tailwind CSS"]}
+        />
 
-        <div class="border rounded-xl w-2/3 p-2 m-2 bg-slate-900 hide">
-            <p class="text-xl font-bold pb-2">Haven't Used In A Long Time</p>
-            <div class="flex justify-around w-full flex-wrap">
-                <Image src="/icons/PHP.svg" alt="PHP Logo" width={80} height={80}/>
-                <Image src="/icons/jQuery.svg" alt="jQuery Logo" width={80} height={80} />
-                <Image src="/icons/TYPO3.svg" alt="TYPO3 Logo" width={80} height={80} />
-            </div>
-        </div>
+        <SkillsSubsection
+            title="Haven't Used In A Long Time"
+            stack={["PHP","jQuery","TYPO3"]}
+        />
+
     </div>
 </section>
-
-<style>
-	.hide {
-		opacity: 0;
-		transform: translateX(-100%);
-		transition: all 1s;
-	}
-
-	.show {
-		opacity: 1;
-		transform: translateX(0);
-		transition: all 1.5s;
-	}
-</style>
-
-<script>
-
-	const observer = new IntersectionObserver((entries) => {
-		entries.forEach((entry) => {
-			if (entry.isIntersecting) {
-				entry.target.classList.add("show")
-			}
-			// else {
-			// 	entry.target.classList.remove("show")
-			// }
-		})
-	})
-	const hiddenElements = document.querySelectorAll(".hide");
-	hiddenElements.forEach((el) => observer.observe(el))
-
-</script>

@@ -13,11 +13,11 @@ interface Props {
 const {title, image, description, stack, github, demo} = Astro.props;
 ---
 
-<div class="flex justify-between w-2/5 bg-slate-900 rounded-xl border m-4 relative">
-    <div class="w-full">
+<div class="flex justify-between w-full mt-2 mb-2 relative hide project">
+    <div class="w-1/2 border rounded-xl z-10">
         <Image src={"/projects/"+image} alt="Metroidvania.GG" width={720} height={540} class="rounded-xl">
     </div>
-    <div class="flex flex-col justify-between items-center p-2 w-full h-full absolute bg-slate-950 bg-opacity-90 rounded-xl opacity-0 scale-90 transition duration-500 hover:scale-100 hover:opacity-100">
+    <div class="flex flex-col justify-between items-center p-2 w-1/2 border rounded-xl bg-slate-900 h-full absolute project-description">
         <p class="font-bold text-2xl">{title}</p>
         <p>{description}</p>
         <div class="flex items-center">
@@ -27,28 +27,51 @@ const {title, image, description, stack, github, demo} = Astro.props;
             })}
         </div>
         <div class="flex w-full justify-center items-center">
-            <p><a href={github} target="_blank"><Image src={"/icons/GitHub.svg"} alt="Github" width={40} height={40} title="Github"/></a></p>
-            <p><a href={demo} target="_blank">Demo🔍</a></p>
+            <!-- <p><a href={github} target="_blank"><Image src={"/icons/GitHub.svg"} alt="Github" width={40} height={40} title="Github"/></a></p> -->
+            <!-- <p><a href={demo} target="_blank">Demo</a></p> -->
+            <p><a href={github} target="_blank"><button class="border rounded ml-2 p-2 bg-slate-800 hover:bg-slate-700">Inspect the Code!</button></a></p>
+            <p><a href={demo} target="_blank"><button class="border rounded ml-2 p-2 bg-slate-800 hover:bg-slate-700">See it Live!</button></a></p>
         </div>
     </div>
 </div>
 
-<!-- <div class="flex justify-between w-2/3 bg-slate-900 rounded-xl border m-4">
-    <div class="w-1/2">
-        <Image src={"/projects/"+image} alt="Metroidvania.GG" width={720} height={540} class="rounded-xl">
-    </div>
-    <div class="flex flex-col justify-between items-center p-2 w-1/2">
-        <p class="font-bold text-2xl">{title}</p>
-        <p>{description}</p>
-        <div class="flex items-center">
-            <p>Stack used: </p>
-            {stack.map((tech) => {
-                return <Image src={"/icons/"+tech+".svg"} alt={tech} width={48} height={48} title={tech} class="p-2"/>
-            })}
-        </div>
-        <div class="flex w-full justify-center items-center">
-            <p><a href={github}><Image src={"/icons/GitHub.svg"} alt="Github" width={40} height={40} title="Github"/></a></p>
-            <p><a href={demo}>Demo</a></p>
-        </div>
-    </div>
-</div> -->
+<style>
+
+    .project-description {
+        left: 5%;
+        transition: left 1s;
+    }
+
+    .project-description:hover {
+        left: 50%;
+    }
+
+    .hide {
+		opacity: 0;
+		transform: translateX(-100%);
+		transition: all 1s;
+	}
+
+	.show {
+		opacity: 1;
+		transform: translateX(0);
+		transition: all 1s;
+	}
+</style>
+
+<script>
+
+	const observer = new IntersectionObserver((entries) => {
+		entries.forEach((entry) => {
+			if (entry.isIntersecting) {
+				entry.target.classList.add("show")
+			}
+			else {
+				entry.target.classList.remove("show")
+			}
+		})
+	})
+	const hiddenElements = document.querySelectorAll(".hide");
+	hiddenElements.forEach((el) => observer.observe(el))
+
+</script>

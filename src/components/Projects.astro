@@ -2,16 +2,16 @@
 import Project from '../components/Project.astro';
 ---
 
-<section class="flex flex-col justify-around items-center bg-slate-800 min-h-screen" id="Projects">
-    <p class="text-4xl font-bold">Projects</p>
-    <div class="flex flex-wrap w-2/3 border justify-center bg-slate-900 rounded-xl hide">
+<section class="flex flex-col justify-around items-center pb-4 pt-12 bg-slate-800 min-h-screen" id="Projects">
+    <p class="text-6xl font-bold mb-3 mt-3 title-font underline">Projects</p>
+    <div class="flex flex-wrap w-2/3 justify-center">
         <Project 
         title="Metroidvania.GG"
         image="metroidvaniagg.png" 
         description="Metroidvanias are a subgerne of videogames. 95% of Metroidvanias are made by either one person or a very small team. The purpose of this Website is to cataloge and display these games. Giving developers another way to advertise their game and giving fans a website to find more games in this gerne."
         stack={["React","Django","MySQL","Vercel"]}
         github="https://github.com/Xoneris/Metroidvania.GG-Frontend" 
-        demo="https://metroidvaniagg.vercel.app"
+        demo="https://metroidvania.gg"
         />
         <Project 
             title="Helldivers 2 Randomizer"
@@ -26,39 +26,9 @@ import Project from '../components/Project.astro';
             image="portfolio.png"
             description="Instead of using a pagebuilder or a portfolio template I thought creating my portfolio would be great oppurtunity to explore and learn some new technologies I haven't used before."
             stack={["Astro","Tailwind CSS"]}
-            github=""
-            demo=""
+            github="https://github.com/Xoneris/portfolio-astro"
+            demo="https://kely.dev"
         />
     </div>
 </section>
 
-<style>
-    .hide {
-		opacity: 0;
-		transform: scale(0);
-		transition: all 1s;
-	}
-
-	.show {
-		opacity: 1;
-		transform: scale(1);
-		transition: all 1s;
-	}
-</style>
-
-<script>
-
-	const observer = new IntersectionObserver((entries) => {
-		entries.forEach((entry) => {
-			if (entry.isIntersecting) {
-				entry.target.classList.add("show")
-			}
-			// else {
-			// 	entry.target.classList.remove("show")
-			// }
-		})
-	})
-	const hiddenElements = document.querySelectorAll(".hide");
-	hiddenElements.forEach((el) => observer.observe(el))
-
-</script>

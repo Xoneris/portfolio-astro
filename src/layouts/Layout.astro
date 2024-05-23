@@ -10,6 +10,10 @@
 		<!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
 		<meta name="generator" content={Astro.generator} />
 		<title>Kely's Portfolio</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
 	</head>
 	<body class="flex flex-col min-h-screen">
 		<slot />
@@ -19,5 +23,17 @@
 <style is:global>
 	html {
 		scroll-behavior: smooth;
+		font-family: "Nunito", sans-serif;
+		/* font-family: "Indie Flower", cursive; */
+		font-weight: 400;
+	}
+
+	::selection {
+		background-color: orange;
+		color: black;
+	}
+
+	.title-font {
+		font-family: "Indie Flower", cursive;
 	}
 </style>

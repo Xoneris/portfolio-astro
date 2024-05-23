@@ -3,18 +3,22 @@ import Layout from '../layouts/Layout.astro';
 import Skills from '../components/Skills.astro';
 import About from '../components/About.astro'
 import Projects from '../components/Projects.astro';
+
+import { Image } from 'astro:assets';
+
+const email = "mailto:hello@kely.dev"
 ---
 
 <Layout>
-	<header class="flex w-full h-14 justify-between items-center p-1 5g-slate-800 text-slate-200 border-b border-b-slate-400 fixed top-0 bg-slate-950 z-10 pr-16 pl-16 rounded-br-3xl rounded-bl-3xl">
+	<header class="flex w-full h-14 justify-between items-center p-1 5g-slate-800 text-slate-200 border-b border-b-slate-400 fixed top-0 bg-slate-950 z-10 pr-16 pl-16 rounded-br-3xl rounded-bl-3xl title-font">
 		<div>
-			<p class="text-3xl font-bold">Kely.dev</p>
+			<p class="text-4xl font-bold">KELY.DEV</p>
 		</div>
 		<nav>
 			<ul class="flex">
-				<li class="text-center text-2xl w-28"><a href="#About">About</a></li>
-				<li class="text-center text-2xl w-28"><a href="#Skills">Skills</a></li>
-				<li class="text-center text-2xl w-28"><a href="#Projects">Projects</a></li>
+				<li class="text-center text-3xl w-28"><a href="#About">About</a></li>
+				<li class="text-center text-3xl w-28" ><a href="#Skills">Skills</a></li>
+				<li class="text-center text-3xl w-28"><a href="#Projects">Projects</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -25,7 +29,26 @@ import Projects from '../components/Projects.astro';
 		<Projects/>
 	</main>
 
-	<footer class="text-center p-1 5g-slate-950 text-slate-300 border-t border-t-slate-400 bg-slate-950">
-		Footer
+	<footer class="text-center p-2 5g-slate-950 text-slate-300 border-t border-t-slate-400 bg-slate-950">
+		<p>kely.dev</p>
 	</footer>
 </Layout>
+
+<style>
+
+	nav a {
+		color: white;
+		text-decoration: none;
+		transition: all;
+		transition-duration: 0.5s;
+	}
+
+	nav a:hover {
+		color: orange;
+		text-decoration: underline;
+		
+	}
+
+
+
+</style>

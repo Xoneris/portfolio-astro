@@ -4,15 +4,15 @@ const email = "mailto:hello@kely.dev"
 ---
 
 <section class="flex justify-center items-center bg-slate-800 min-h-screen" id="About">
-    <div class="flex justify-around items-center w-2/5  rounded-xl h-80 ">
-        <Image src="/kely-avatar.png" alt="Kely picture" width={300} height={300} class="rounded-full p-2 border"/>
-        <div class="flex flex-col justify-around items-start w-3/4 h-full p-4">
-            <p class="text-4xl font-bold">Hi, I am <span class="name-animation">Kely</span>!</p>
-            <p class="text-xl">A Webdeveloper from Switzerland. Passionate about creating frontends and learning about new technologies.</p>
-            <ul class="flex">
-                <li class="w-28"><a href="https://github.com/Xoneris" target="_blank"><Image src="/icons/GitHub.svg" alt="GitHub Logo" width={30} height={30} /></a></li>
-                <li class="w-28"><a href="https://www.linkedin.com/in/kely-mätzler-23b1a4301/" target="_blank"><Image src="/icons/LinkedIn.svg" alt="LinkedIn Logo" width={30} height={30} /></a></li>
-                <li class="w-28"><a href={email} target="_blank">E-Mail</a></li>
+    <div class="flex justify-around items-center w-3/5 rounded-xl">
+        <Image src="/kely-avatar.png" alt="Kely picture" width={300} height={300} class="rounded-full p-2 border w-1/3"/>
+        <div class="flex flex-col justify-around items-start w-2/3 h-80 p-4 ">
+            <p class="text-4xl font-bold">Hi, I am <span class="name-animation title-font text-5xl">Kely</span>!</p>
+            <p class="text-xl">A <span class="name-animation font-bold">Frontend/Fullstack</span> developer from Switzerland. Passionate about creating frontends and learning about new technologies.</p>
+            <ul class="flex w-full gap-10">
+                <li class=" scale-100 transition-all hover:scale-110"><a href="https://github.com/Xoneris" target="_blank"><Image src="/icons/GitHub.svg" alt="GitHub Logo" width={40} height={40} /></a></li>
+                <li class=" scale-100 transition-all hover:scale-110"><a href="https://www.linkedin.com/in/kely-mätzler-23b1a4301/" target="_blank"><Image src="/icons/LinkedIn.svg" alt="LinkedIn Logo" width={40} height={40} /></a></li>
+                <li class=" scale-100 transition-all hover:scale-110"><a href={email} target="_blank"><Image src="/icons/Email.svg" width={40} height={40} alt="Email Icon"/></a></li>
             </ul>
         </div>
     </div>

@@ -1,0 +1,50 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+	title: string;
+    stack: Array<string>
+}
+
+const {title, stack} = Astro.props;
+---
+
+<div class="border rounded-xl w-2/3 p-2 m-8 bg-slate-900 hide">
+    <p class="text-xl font-bold pb-2">{title}</p>
+    <div class="flex justify-evenly items-center  w-full flex-wrap">
+        {stack.map((tech) => {
+            return <Image src={"/icons/"+tech+".svg"} alt={tech} width={60} height={60} title={tech} />
+        })}
+    </div>
+</div>
+
+<style>
+	.hide {
+		opacity: 0;
+		transform: translateX(-100%);
+		transition: all 1s;
+	}
+
+	.show {
+		opacity: 1;
+		transform: translateX(0);
+		transition: all 1.5s;
+	}
+</style>
+
+<script>
+
+	const observer = new IntersectionObserver((entries) => {
+		entries.forEach((entry) => {
+			if (entry.isIntersecting) {
+				entry.target.classList.add("show")
+			}
+			else {
+				entry.target.classList.remove("show")
+			}
+		})
+	})
+	const hiddenElements = document.querySelectorAll(".hide");
+	hiddenElements.forEach((el) => observer.observe(el))
+
+</script>
