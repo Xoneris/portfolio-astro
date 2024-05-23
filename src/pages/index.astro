@@ -4,21 +4,19 @@ import Skills from '../components/Skills.astro';
 import About from '../components/About.astro'
 import Projects from '../components/Projects.astro';
 
-import { Image } from 'astro:assets';
-
 const email = "mailto:hello@kely.dev"
 ---
 
 <Layout>
-	<header class="flex w-full h-14 justify-between items-center p-1 5g-slate-800 text-slate-200 border-b border-b-slate-400 fixed top-0 bg-slate-950 z-10 pr-16 pl-16 rounded-br-3xl rounded-bl-3xl title-font">
-		<div>
+	<header class="flex w-full h-14 justify-center sm:justify-between items-center p-1 5g-slate-800 text-slate-200 border-b border-b-slate-400 fixed top-0 bg-slate-950 z-10 pr-16 pl-16 rounded-br-3xl rounded-bl-3xl title-font">
+		<div class="hidden sm:block">
 			<p class="text-4xl font-bold">KELY.DEV</p>
 		</div>
 		<nav>
 			<ul class="flex">
-				<li class="text-center text-3xl w-28"><a href="#About">About</a></li>
-				<li class="text-center text-3xl w-28" ><a href="#Skills">Skills</a></li>
-				<li class="text-center text-3xl w-28"><a href="#Projects">Projects</a></li>
+				<li class="text-center text-2xl sm:text-3xl w-28"><a href="#About">About</a></li>
+				<li class="text-center text-2xl sm:text-3xl w-28" ><a href="#Skills">Skills</a></li>
+				<li class="text-center text-2xl sm:text-3xl w-28"><a href="#Projects">Projects</a></li>
 			</ul>
 		</nav>
 	</header>

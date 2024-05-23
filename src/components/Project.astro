@@ -13,11 +13,11 @@ interface Props {
 const {title, image, description, stack, github, demo} = Astro.props;
 ---
 
-<div class="flex justify-between w-full mt-2 mb-2 relative hide project">
-    <div class="w-1/2 border rounded-xl z-10">
-        <Image src={"/projects/"+image} alt="Metroidvania.GG" width={720} height={540} class="rounded-xl">
+<div class="flex justify-between w-full mt-2 mb-2 relative hide project flex-col lg:flex-row border rounded-xl lg:border-0">
+    <div class="w-full lg:w-1/2 rounded-xl z-10 border-0 lg:border">
+        <Image src={"/projects/"+image} alt="Metroidvania.GG" width={720} height={540} class="rounded-xl m-auto">
     </div>
-    <div class="flex flex-col justify-between items-center p-2 w-1/2 border rounded-xl bg-slate-900 h-full absolute project-description">
+    <div class="flex flex-col justify-between items-center p-2 w-full lg:w-1/2 rounded-xl bg-slate-900 h-full static lg:absolute  border-0 lg:border project-description">
         <p class="font-bold text-2xl">{title}</p>
         <p>{description}</p>
         <div class="flex items-center">
