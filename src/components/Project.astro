@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import { textSpanContainsPosition } from 'typescript';
 
 interface Props {
 	title: string;
@@ -8,14 +9,15 @@ interface Props {
     stack: Array<string>
 	github: string;
     demo: string;
+
 }
 
 const {title, image, description, stack, github, demo} = Astro.props;
 ---
 
 <div class="flex justify-between w-full mt-2 mb-2 relative hide project flex-col lg:flex-row border rounded-xl lg:border-0">
-    <div class="w-full lg:w-1/2 rounded-xl z-10 border-0 lg:border">
-        <Image src={"/projects/"+image} alt="Metroidvania.GG" width={720} height={540} class="rounded-xl m-auto">
+    <div class="w-full lg:w-1/2 rounded-xl z-10 border-0 lg:border ">
+        <Image src={"/projects/"+image} alt="Metroidvania.GG" width={720} height={540} class="rounded-xl m-auto z-50 w-full">
     </div>
     <div class="flex flex-col justify-between items-center p-2 w-full lg:w-1/2 rounded-xl bg-slate-900 h-full static lg:absolute  border-0 lg:border project-description">
         <p class="font-bold text-2xl">{title}</p>
@@ -46,6 +48,17 @@ const {title, image, description, stack, github, demo} = Astro.props;
         left: 50%;
     }
 
+    .project-desc-show {
+        left: 50%;
+        box-shadow: 0 0 3px 1px orange;
+        border-color: orange;
+    }
+
+    .project-image-background {
+        overflow: auto;
+        position: relative;
+    }
+
     .hide {
 		opacity: 0;
 		transform: translateX(-100%);
@@ -60,6 +73,21 @@ const {title, image, description, stack, github, demo} = Astro.props;
 </style>
 
 <script>
+
+    const projectDescription = document.querySelectorAll("div.project-description")
+    projectDescription.forEach((click) => {
+        click.addEventListener('click', () => {
+            
+            if(click.classList.contains("project-desc-show") && window.innerWidth >= 1023){
+                click.classList.remove("project-desc-show")
+                console.log(window.innerWidth)
+            } else if(window.innerWidth >= 1023) {
+                click.classList.add("project-desc-show")
+                console.log(window.innerWidth)
+            }
+
+        })
+    })
 
 	const observer = new IntersectionObserver((entries) => {
 		entries.forEach((entry) => {
