@@ -15,13 +15,13 @@ interface Props {
 const {title, image, description, stack, github, demo} = Astro.props;
 ---
 
-<div class="flex justify-between w-full mt-2 mb-2 relative hide project flex-col lg:flex-row border rounded-xl lg:border-0">
+<div class="flex justify-between w-full mt-2 mb-2 relative hide project flex-col lg:flex-row border rounded-xl lg:border-0 ">
     <div class="w-full lg:w-1/2 rounded-xl z-10 border-0 lg:border ">
         <Image src={"/projects/"+image} alt="Metroidvania.GG" width={720} height={540} class="rounded-xl m-auto z-50 w-full">
-    </div>
-    <div class="flex flex-col justify-between items-center p-2 w-full lg:w-1/2 rounded-xl bg-slate-900 h-full static lg:absolute  border-0 lg:border project-description">
-        <p class="font-bold text-2xl">{title}</p>
-        <p>{description}</p>
+    </div> 
+    <div class="flex flex-col justify-between items-center p-2 pl-2 w-full lg:w-1/2 rounded-xl bg-slate-900 h-full static lg:absolute border-0 lg:border lg:-skew-x-6 lg:*:skew-x-6 project-description">
+        <p class="font-bold text-2xl ">{title}</p>
+        <p class="">{description}</p>
         <div class="flex items-center">
             <p>Stack used: </p>
             {stack.map((tech) => {
@@ -41,11 +41,12 @@ const {title, image, description, stack, github, demo} = Astro.props;
 
     .project-description {
         left: 5%;
+        /* padding-left: 6%; */
         transition: left 1s;
     }
 
     .project-description:hover {
-        left: 50%;
+        left: 45%;
     }
 
     .project-desc-show {
@@ -70,6 +71,12 @@ const {title, image, description, stack, github, demo} = Astro.props;
 		transform: translateX(0);
 		transition: all 1s;
 	}
+
+    @media (min-width: 1024px){
+        .project-description {
+        padding-left: 6%;
+        }
+    }
 </style>
 
 <script>
@@ -80,10 +87,8 @@ const {title, image, description, stack, github, demo} = Astro.props;
             
             if(click.classList.contains("project-desc-show") && window.innerWidth >= 1023){
                 click.classList.remove("project-desc-show")
-                console.log(window.innerWidth)
             } else if(window.innerWidth >= 1023) {
                 click.classList.add("project-desc-show")
-                console.log(window.innerWidth)
             }
 
         })
