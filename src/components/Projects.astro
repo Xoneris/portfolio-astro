@@ -6,12 +6,20 @@ import Project from '../components/Project.astro';
     <p class="text-6xl font-bold mb-3 mt-3 title-font underline">Projects</p>
     <div class="flex flex-wrap w-4/5 xl:w-2/3 justify-center">
         <Project 
-        title="Metroidvania.GG"
-        image="metroidvaniagg.png" 
-        description="A fullstack website which goal it is to catalogue and showcase 'Metroidvania' videogames!"
-        stack={["React","Django","MySQL","Vercel"]}
+        title="Metroidvania.GG Frontend"
+        image="metroidvaniagg-frontend.png" 
+        description="The frontend of Metroidvania.GG. A information hub website for everything related to 'Metroidvania' videogames."
+        stack={["React","Vercel"]}
         github="https://github.com/Xoneris/Metroidvania.GG-Frontend" 
         demo="https://metroidvania.gg"
+        />
+        <Project 
+        title="Metroidvania.GG Backend (Django)"
+        image="metroidvaniagg-backend-django.png" 
+        description="The backend of Metroidvania.GG. Provides multiple api endpoints for the frontend to fetch data."
+        stack={["Django","MySQL"]}
+        github="https://github.com/Xoneris/Metroidvania.GG-Backend-Django" 
+        demo="none"
         />
         <Project 
             title="Helldivers 2 Randomizer"

@@ -32,7 +32,7 @@ const {title, image, description, stack, github, demo} = Astro.props;
             <!-- <p><a href={github} target="_blank"><Image src={"/icons/GitHub.svg"} alt="Github" width={40} height={40} title="Github"/></a></p> -->
             <!-- <p><a href={demo} target="_blank">Demo</a></p> -->
             <p><a href={github} target="_blank"><button class="border rounded ml-2 p-2 bg-slate-800 hover:bg-slate-700">Inspect the Code!</button></a></p>
-            <p><a href={demo} target="_blank"><button class="border rounded ml-2 p-2 bg-slate-800 hover:bg-slate-700">See it Live!</button></a></p>
+            {demo !== "none" ? <p><a href={demo} target="_blank"><button class="border rounded ml-2 p-2 bg-slate-800 hover:bg-slate-700">See it Live!</button></a></p> : null }
         </div>
     </div>
 </div>

@@ -10,15 +10,26 @@ const {title, stack} = Astro.props;
 ---
 
 <div class="border rounded-xl w-4/5 sm:w-2/3 p-2 m-8 bg-slate-900 skew-x-12">
-    <p class="text-xl font-bold pb-2 -skew-x-12">{title}</p>
+    <p class="text-xl font-bold mb-2 border-b -skew-x-12">{title}</p>
     <div class="flex justify-evenly items-center  w-full flex-wrap -skew-x-12">
-        {stack.map((tech) => {
-            return <Image src={"/icons/"+tech+".svg"} alt={tech} width={60} height={60} title={tech} />
-        })}
+        {stack.map((tech) => (
+			<div class="flex flex-col justify-end test [&>*]:m-auto">
+				<Image src={"/icons/"+tech+".svg"} alt={tech} width={60} height={60} title={tech} />
+				<b>{tech}</b>
+			</div>
+        ))}
     </div>
 </div>
 
 <style>
+	.test {
+		width: 100px;
+	}
+
+	/* .test>* {
+		margin: auto;
+	} */
+
 	.hide {
 		opacity: 0;
 		transform: translateX(-100%);
