@@ -9,11 +9,11 @@ interface Props {
 const {title, stack} = Astro.props;
 ---
 
-<div class="border rounded-xl w-4/5 sm:w-2/3 p-2 m-8 bg-slate-900 skew-x-0 sm:skew-x-12">
+<div class="border rounded-xl w-4/5 sm:w-2/3 p-2 m-8 bg-slate-900 skew-x-0 sm:skew-x-12 hide">
     <p class="text-xl font-bold mb-2 border-b -skew-x-0 sm:-skew-x-12">{title}</p>
-    <div class="flex justify-evenly items-center  w-full flex-wrap -skew-x-0 sm:-skew-x-12">
+    <div class="flex justify-evenly items-center w-full flex-wrap -skew-x-0 sm:-skew-x-12">
         {stack.map((tech) => (
-			<div class="flex flex-col justify-end test [&>*]:m-auto">
+			<div class="flex flex-col justify-end width-100 [&>*]:m-auto">
 				<Image src={"/icons/"+tech+".svg"} alt={tech} width={60} height={60} title={tech} />
 				<b>{tech}</b>
 			</div>
@@ -22,19 +22,21 @@ const {title, stack} = Astro.props;
 </div>
 
 <style>
-	.test {
+	.width-100 {
 		width: 100px;
 	}
 
 	.hide {
 		opacity: 0;
-		transform: translateX(-100%);
+		/* transform: translateX(-100%); */
+		margin-left: -100%;
 		transition: all 1s;
 	}
 
 	.show {
 		opacity: 1;
-		transform: translateX(0);
+		/* transform: translateX(0); */
+		margin-left: 32px;
 		transition: all 1.5s;
 	}
 </style>
