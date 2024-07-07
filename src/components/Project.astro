@@ -23,9 +23,9 @@ const {title, image, description, stack, github, demo} = Astro.props;
         <p class="">{description}</p>
         <div class="flex items-center">
             <p>Stack used: </p>
-            {stack.map((tech) => {
-                return <Image src={"/icons/"+tech+".svg"} alt={tech} width={48} height={48} title={tech} class="p-2"/>
-            })}
+            {stack.map((tech) => (
+                <Image src={"/icons/"+tech+".svg"} alt={tech} width={48} height={48} title={tech} class="p-2"/>
+            ))}
         </div>
         <div class="flex w-full justify-center items-center">
             <p><a href={github} target="_blank"><button class="border rounded ml-2 p-2 bg-slate-800 hover:bg-slate-700">Inspect the Code!</button></a></p>
