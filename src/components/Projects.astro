@@ -12,6 +12,7 @@ const allProjects = await getCollection('projects');
         {allProjects.map((project:any) => (
             <Project 
                 title={project.data.title}
+                slug={project.slug}
                 image={project.data.image}
                 description={project.data.description}
                 stack={project.data.stack}

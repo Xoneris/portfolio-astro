@@ -1,0 +1,41 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const allProjects = await getCollection('projects');
+  return allProjects.map(project => ({
+    params: { slug: project.slug }, props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+---
+
+<Layout>
+    <section class="flex justify-center items-center bg-slate-800 min-h-screen">
+        <div class="flex flex-col border p-4 bg-slate-900 rounded-xl">
+            <h1 class="title-font text-4xl font-bold text-center">{project.data.title}</h1>
+            <Image src={"/projects/"+project.data.image} alt="Metroidvania.GG" width={720} height={540} class="rounded-xl"></Image>
+            <p>{project.data.description}</p>
+            <p>
+                {project.data.stack.map((tech)=> (
+                    <Image src={"/icons/"+tech+".svg"} alt={tech} width={48} height={48} title={tech} class="p-2"/>
+                ))}
+            </p>
+            <div class="flex w-full justify-center items-center">
+                <p><a href={project.data.github} target="_blank">
+                    <button class="border rounded ml-2 p-2 bg-slate-800 hover:bg-slate-700">
+                      Inspect the Code!
+                    </button>
+                </a></p>
+                { project.data.demo !== "none" 
+                  ? <p><a href={project.data.demo} target="_blank">
+                        <button class="border rounded ml-2 p-2 bg-slate-800 hover:bg-slate-700">See it Live!</button>
+                    </a></p> 
+                  : null }
+          </div>
+        </div>
+    </section>
+</Layout>
