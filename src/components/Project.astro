@@ -9,27 +9,25 @@ interface Props {
     stack: Array<string>
 	github: string;
     demo: string;
-
 }
 
 const {title, slug, image, description, stack} = Astro.props;
 ---
 
-<div class="flex flex-col justify-between w-full mt-2 mb-2 relative hide project lg:flex-col border rounded-xl lg:border-0 ">
-    <div class="w-full lg:w-1/2 rounded-xl z-10 border-0 lg:border ">
-        <Image src={"/projects/"+image} alt="Metroidvania.GG" width={720} height={540} class="rounded-xl m-auto z-50 w-full">
-    </div> 
-    <div class="flex flex-col justify-between items-center p-2 pl-2 w-full lg:w-1/2 rounded-xl bg-slate-900 h-full static lg:absolute border-0 lg:border lg:-skew-x-6 lg:*:skew-x-6 project-description">
-        <p class="font-bold text-2xl">{title}</p>
-        <p class="">{description}</p>
-        <div class="flex items-center">
-            <p>Stack used: </p>
+<div class="flex flex-col w-2/5 justify-between m-2 bg-slate-900 hide project border rounded-xl ">
+    <p class="font-bold text-2xl text-center p-2">{title}</p>
+    <div class="w-full rounded-xl border relative">
+        <div class="flex items-center border border-black rounded-tl-xl rounded-br-xl bg-slate-950 bg-opacity-80 absolute bottom-0 right-0 ">
             {stack.map((tech) => (
                 <Image src={"/icons/"+tech+".svg"} alt={tech} width={48} height={48} title={tech} class="p-2"/>
             ))}
         </div>
+        <Image src={"/projects/"+image} alt="Metroidvania.GG" width={720} height={540} class="rounded-xl m-auto w-full">
+    </div> 
+    <div class="flex flex-col justify-between items-center p-2 w-full rounded-xl h-full project-description">
+        <p class="">{description}</p>
         <div class="flex w-full justify-center items-center">
-            <p><a href={"/"+slug} ><button class="border rounded ml-2 p-2 bg-slate-800 hover:bg-slate-700">Learn More!</button></a></p>
+            <p><a href={"/"+slug} ><button class="border rounded  p-2 bg-slate-800 hover:bg-slate-700">Learn More!</button></a></p>
         </div>
     </div>
 </div>
@@ -54,9 +52,9 @@ const {title, slug, image, description, stack} = Astro.props;
 </div> -->
 
 <style>
-    .project-description {
+    /* .project-description {
         left: 5%;
-        /* padding-left: 6%; */
+        padding-left: 6%;
         transition: left 1s;
     }
 
@@ -68,7 +66,7 @@ const {title, slug, image, description, stack} = Astro.props;
         left: 45%;
         box-shadow: 0 0 3px 1px orange;
         border-color: orange;
-    }
+    } */
 
     .project-image-background {
         overflow: auto;
@@ -87,11 +85,11 @@ const {title, slug, image, description, stack} = Astro.props;
 		transition: all 1s;
 	}
 
-    @media (min-width: 1024px){
+    /* @media (min-width: 1024px){
         .project-description {
-        padding-left: 6%;
+            padding-left: 6%;
         }
-    }
+    } */
 </style>
 
 <script>
