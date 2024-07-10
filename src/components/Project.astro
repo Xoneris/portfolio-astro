@@ -12,22 +12,26 @@ interface Props {
 }
 
 const {title, slug, image, description, stack} = Astro.props;
+
+const descriptionExcrept = description.substring(0, 10) + "..."
+
 ---
 
-<div class="flex flex-col w-2/5 justify-between m-2 bg-slate-900 hide project border rounded-xl ">
+<div class="flex flex-col w-2/5 justify-between bg-slate-900 hide project border rounded-xl mb-12 ">
     <p class="font-bold text-2xl text-center p-2">{title}</p>
-    <div class="w-full rounded-xl border relative">
-        <div class="flex items-center border border-black rounded-tl-xl rounded-br-xl bg-slate-950 bg-opacity-80 absolute bottom-0 right-0 ">
-            {stack.map((tech) => (
-                <Image src={"/icons/"+tech+".svg"} alt={tech} width={48} height={48} title={tech} class="p-2"/>
-            ))}
-        </div>
-        <Image src={"/projects/"+image} alt="Metroidvania.GG" width={720} height={540} class="rounded-xl m-auto w-full">
+    <div class=" rounded-xl border m-2">
+        <Image src={"/projects/"+image} alt="Metroidvania.GG" width={720} height={540} class="rounded-xl w-full">
     </div> 
     <div class="flex flex-col justify-between items-center p-2 w-full rounded-xl h-full project-description">
-        <p class="">{description}</p>
-        <div class="flex w-full justify-center items-center">
-            <p><a href={"/"+slug} ><button class="border rounded  p-2 bg-slate-800 hover:bg-slate-700">Learn More!</button></a></p>
+        <!-- <p class="">{descriptionExcrept}</p> -->
+        <p class="p-4 text-center">{description}</p>
+        <div class="flex w-full justify-around items-center pt-2">
+            <div class="flex items-center gap-2 rounded border p-2 bg-slate-800">
+                {stack.map((tech) => (
+                    <Image src={"/icons/"+tech+".svg"} alt={tech} width={24} height={24} title={tech}/>
+                ))}
+            </div>
+            <p><a href={"/"+slug} ><button class="border rounded p-2 bg-slate-800 hover:bg-slate-700">Learn More!</button></a></p>
         </div>
     </div>
 </div>

@@ -8,7 +8,7 @@ const allProjects = await getCollection('projects');
 
 <section class="flex flex-col justify-around items-center pb-4 pt-12 bg-slate-800 min-h-screen" id="Projects">
     <p class="text-6xl font-bold mb-3 mt-3 title-font underline">Projects</p>
-    <div class="flex flex-wrap w-4/5 xl:w-2/3 justify-center">
+    <div class="flex flex-wrap w-4/5 xl:w-2/3 justify-around">
         {allProjects.map((project:any) => (
             <Project 
                 title={project.data.title}
