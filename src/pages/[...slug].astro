@@ -11,19 +11,30 @@ export async function getStaticPaths() {
 }
 
 const { project } = Astro.props;
+const { Content } = await project.render();
 ---
 
 <Layout>
-    <section class="flex justify-center items-center bg-slate-800 min-h-screen">
-        <div class="flex flex-col border p-4 bg-slate-900 rounded-xl">
-            <h1 class="title-font text-4xl  text-center">{project.data.title}</h1>
+    <section class="flex flex-col justify-center items-center bg-slate-800 min-h-screen mt-20 mb-4">
+        <p class="text-xl mb-3 hover:text-slate-200"><a href="/#Projects">&lt; Back to Projects</a></p>
+        <div class="flex flex-col gap-4 items-center border w-1/2 p-4 bg-slate-900 rounded-xl">
+            <h1 class="title-font text-4xl text-center text-white">{project.data.title}</h1>
+            <div class="flex gap-2">
+              <b>Stack used:</b>
+              {project.data.stack.map((tech, index, array)=> {
+                  if (array.length - 1 === index){
+                    return (<i>{tech}</i>)
+                  }
+                  else {
+                    return (<i>{tech}</i><p>-</p>)
+                  }
+                  
+              })}
+            </div>
             <Image src={"/projects/"+project.data.image} alt="Metroidvania.GG" width={720} height={540} class="rounded-xl border"/>
-            <p>{project.data.description}</p>
-            <p>
-                {project.data.stack.map((tech)=> (
-                    <Image src={"/icons/"+tech+".svg"} alt={tech} width={48} height={48} title={tech} class="p-2"/>
-                ))}
-            </p>
+            <div>
+              <Content/>
+            </div>
             <div class="flex w-full justify-center items-center">
                 <p><a href={project.data.github} target="_blank">
                     <button class="border rounded ml-2 p-2 bg-slate-800 hover:bg-slate-700">
@@ -35,7 +46,23 @@ const { project } = Astro.props;
                         <button class="border rounded ml-2 p-2 bg-slate-800 hover:bg-slate-700">See it Live!</button>
                     </a></p> 
                   : null }
-          </div>
+            </div>
         </div>
     </section>
 </Layout>
+
+<style is:global>
+  h2 {
+    font-size: 20px;
+    font-weight: bold;
+    border-left: 4px solid white;
+    border-bottom: 1px solid white;
+    padding-left: 8px;
+    margin: 16px 0 4px 0;
+  }
+  
+  li {
+    list-style: circle;
+    margin-left: 20px;
+  }
+</style>
