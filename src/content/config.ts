@@ -9,6 +9,7 @@ const projectsCollection = defineCollection({
       stack: z.array(z.string()),
       github: z.string(),
       demo: z.string(), 
+      wip: z.string().optional(),
     }),
   });
 

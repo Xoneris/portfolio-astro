@@ -52,17 +52,32 @@ const { Content } = await project.render();
 </Layout>
 
 <style is:global>
+  h3 {
+    font-size: 24px;
+    font-weight: bold;
+    border-left: 4px solid red;
+    border-bottom: 1px solid red;
+    border-bottom-left-radius: 16px;
+    padding-left: 8px;
+    margin: 20px 0 16px 0;
+  }
+  
   h2 {
     font-size: 20px;
     font-weight: bold;
     border-left: 4px solid white;
     border-bottom: 1px solid white;
+    border-bottom-left-radius: 16px;
     padding-left: 8px;
-    margin: 16px 0 4px 0;
+    margin: 32px 0 16px 0;
   }
   
   li {
     list-style: circle;
-    margin-left: 20px;
+    margin-left: 33px;
+  }
+
+  p {
+    padding-left: 13px;
   }
 </style>

@@ -2,8 +2,7 @@
 
 title: Space Tourism
 image: space-tourism.png
-# description: Created this websites as part of a frontend challenge. I was provided a figma file and the goal was to reproduce it's contents.
-description: A Challenge from frontendmentor.io. You get a figma file and you're goal is to recreate the project from it. 
+description: A Challenge from frontendmentor.io. A simple website with interactive elements and informational content about space travel. 
 stack: [Vue.js, Sass, Vercel]
 github: https://github.com/Xoneris/frontend-mentor-space_tourism
 demo: https://fmspace-tourism-xoneris-projects.vercel.app

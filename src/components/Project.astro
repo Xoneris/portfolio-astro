@@ -9,23 +9,28 @@ interface Props {
     stack: Array<string>
 	github: string;
     demo: string;
+    wip: string;
 }
 
-const {title, slug, image, description, stack} = Astro.props;
-
-const descriptionExcrept = description.substring(0, 10) + "..."
-
+const {title, slug, image, description, stack, wip} = Astro.props;
 ---
 
 <div class="flex flex-col  lg:w-2/5 w-full justify-between bg-slate-900 hide project border rounded-xl mb-12 ">
     <p class="font-bold text-2xl text-center p-2">{title}</p>
-    <div class=" rounded-xl border m-2">
-        <Image src={"/projects/"+image} alt="Metroidvania.GG" width={720} height={540} class="rounded-xl w-full">
+    <div class=" rounded-xl border m-2 relative">
+        {
+            wip === "yes"
+            ? <div class="absolute top-0 right-0 p-1 w-36 h-9 mt-1 mr-1 bg-red-600 bg-opacity-60 rounded-lg flex justify-center items-center text-white ">
+                Work in Progress
+            </div>
+            : null
+        }
+        
+        <Image src={"/projects/"+image} alt={slug} width={720} height={540} class="rounded-xl w-full">
     </div> 
     <div class="flex flex-col justify-between items-center p-2 w-full rounded-xl h-full project-description">
-        <!-- <p class="">{descriptionExcrept}</p> -->
         <p class="p-4 text-center">{description}</p>
-        <div class="flex w-full justify-around items-center pt-2">
+        <div class="flex flex-col sm:flex-row gap-2 sm:gap-0 w-full justify-around items-center pt-2">
             <div class="flex items-center gap-2 rounded border p-2 bg-slate-800">
                 {stack.map((tech) => (
                     <Image src={"/icons/"+tech+".svg"} alt={tech} width={24} height={24} title={tech}/>
@@ -35,42 +40,8 @@ const descriptionExcrept = description.substring(0, 10) + "..."
         </div>
     </div>
 </div>
-<!-- <div class="flex justify-between w-full mt-2 mb-2 relative hide project flex-col lg:flex-row border rounded-xl lg:border-0 ">
-    <div class="w-full lg:w-1/2 rounded-xl z-10 border-0 lg:border ">
-        <Image src={"/projects/"+image} alt="Metroidvania.GG" width={720} height={540} class="rounded-xl m-auto z-50 w-full">
-    </div> 
-    <div class="flex flex-col justify-between items-center p-2 pl-2 w-full lg:w-1/2 rounded-xl bg-slate-900 h-full static lg:absolute border-0 lg:border lg:-skew-x-6 lg:*:skew-x-6 project-description">
-        <p class="font-bold text-2xl">{title}</p>
-        <p class="">{description}</p>
-        <div class="flex items-center">
-            <p>Stack used: </p>
-            {stack.map((tech) => (
-                <Image src={"/icons/"+tech+".svg"} alt={tech} width={48} height={48} title={tech} class="p-2"/>
-            ))}
-        </div>
-        <div class="flex w-full justify-center items-center">
-            <p><a href={github} target="_blank"><button class="border rounded ml-2 p-2 bg-slate-800 hover:bg-slate-700">Inspect the Code!</button></a></p>
-            {demo !== "none" ? <p><a href={demo} target="_blank"><button class="border rounded ml-2 p-2 bg-slate-800 hover:bg-slate-700">See it Live!</button></a></p> : null }
-        </div>
-    </div>
-</div> -->
 
 <style>
-    /* .project-description {
-        left: 5%;
-        padding-left: 6%;
-        transition: left 1s;
-    }
-
-    .project-description:hover {
-        left: 45%;
-    }
-
-    .project-desc-show {
-        left: 45%;
-        box-shadow: 0 0 3px 1px orange;
-        border-color: orange;
-    } */
 
     .project-image-background {
         overflow: auto;
@@ -89,11 +60,6 @@ const descriptionExcrept = description.substring(0, 10) + "..."
 		transition: all 1s;
 	}
 
-    /* @media (min-width: 1024px){
-        .project-description {
-            padding-left: 6%;
-        }
-    } */
 </style>
 
 <script>
