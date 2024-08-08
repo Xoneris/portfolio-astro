@@ -28,4 +28,4 @@ First major project I used Next.js, Drizzle and PostgreSQL for. I learned the fo
 - How to create a Dark Mode toggle Button
 - How to connect to a DB with Drizzle
 - How to create a schema in Drizzle
-- How to perform crude operations in Drizzle
+- How to perform CRUD operations in Drizzle
