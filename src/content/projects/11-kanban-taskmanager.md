@@ -3,7 +3,7 @@
 title: Kanban Taskmanager
 image: kanban-taskmanager.png
 description: A Challenge from FrontendMentor.io. A Taskmanagement app. You can create multiple boards, columns, tasks and subtasks to organise your projects. 
-stack: [Next.js, Drizzle ORM, PostgresSQL, Tailwind CSS, Vercel]
+stack: [Next.js, Drizzle ORM, PostgreSQL, Tailwind CSS, Vercel]
 github: https://github.com/Xoneris/frontend-mentor-kanban-taskmanager
 demo: none
 wip: yes
