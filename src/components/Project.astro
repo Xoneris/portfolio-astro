@@ -18,15 +18,16 @@ const {title, slug, image, description, stack, wip} = Astro.props;
 <div class="flex flex-col  lg:w-2/5 w-full justify-between bg-slate-900 hide project border rounded-xl mb-12 ">
     <p class="font-bold text-2xl text-center p-2">{title}</p>
     <div class=" rounded-xl border m-2 relative">
-        {
-            wip === "yes"
-            ? <div class="absolute top-0 right-0 p-1 w-36 h-9 mt-1 mr-1 bg-red-600 bg-opacity-60 rounded-lg flex justify-center items-center text-white ">
-                Work in Progress
-            </div>
-            : null
-        }
-        
-        <Image src={"/projects/"+image} alt={slug} width={720} height={540} class="rounded-xl w-full">
+        <a href={"/"+slug}>
+            {
+                wip === "yes"
+                ? <div class="absolute top-0 right-0 p-1 w-36 h-9 mt-1 mr-1 bg-red-600 bg-opacity-60 rounded-lg flex justify-center items-center text-white ">
+                    Work in Progress
+                </div>
+                : null
+            }
+            <Image src={"/projects/"+image} alt={slug} width={720} height={540} class="rounded-xl w-full">
+        </a>
     </div> 
     <div class="flex flex-col justify-between items-center p-2 w-full rounded-xl h-full project-description">
         <p class="p-4 text-center">{description}</p>
