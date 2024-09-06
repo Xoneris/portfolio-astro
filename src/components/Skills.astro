@@ -4,22 +4,7 @@ import SkillsSubsection from './SkillsSubsection.astro';
 
 <section class="flex justify-center items-center flex-col bg-slate-700 min-h-screen border-t-2 border-b-2 border-white" id="Skills">
     <p class="text-6xl font-bold m-6 title-font underline">Skills</p>
-    <div class="flex flex-wrap flex-col w-full justify-around items-center">
-
-        <!-- <SkillsSubsection 
-            title="Proficient In Using"
-            stack={["HTML5","CSS3","JavaScript","React","MySQL"]}
-        />
-
-        <SkillsSubsection
-            title="Basic Understanding"
-            stack={["Python","PHP","jQuery","Tailwind CSS","Sass","Django","Bootstrap","WordPress","TYPO3","GitHub","Vercel"]}
-        />
-
-        <SkillsSubsection
-            title="Experimenting & Learning"
-            stack={["Astro","Next.js","Vue.js","Laravel","TypeScript"]}
-        /> -->
+    <div class="flex flex-col gap-0 w-full justify-around items-center">
 
         <SkillsSubsection
             title="Programing Languages"
@@ -38,6 +23,9 @@ import SkillsSubsection from './SkillsSubsection.astro';
             title="Content Management Systems"
             stack={["WordPress", "TYPO3"]}
         />
-
+        <SkillsSubsection
+            title="Development Tools"
+            stack={["Git", "GitHub", "VSCode", "Figma"]}
+        />
     </div>
 </section>
