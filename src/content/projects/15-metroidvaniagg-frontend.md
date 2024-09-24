@@ -2,7 +2,7 @@
 
 title: Metroidvania.GG Frontend
 image: metroidvaniagg-frontend.png
-description: A React frontend for my passion project called Metroidvania.GG. My first ever project with React which I'm still constantly working on.
+description: A React frontend for my passion project called Metroidvania.GG. My first ever project with React which I regularly update.
 stack: [React, Vercel]
 github: https://github.com/Xoneris/Metroidvania.GG-Frontend
 demo: https://metroidvania.gg
