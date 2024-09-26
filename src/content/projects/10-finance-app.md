@@ -16,7 +16,6 @@ It's like 85% done, just missing a lot of small but important details.
 ## Short description
 [Frontend Mentor](https://www.frontendmentor.io) is a website where developers can test their skills. They have a variety of different challanges ranging from easy to expert. If you start a challenge, you will be given a Figma file and the goal is to recreate the website with all it's functionality from the Figma file. It's up to you which technologies and tools you use. 
 
-
 For this challenge I used Angular and Tailwind CSS. So far this is only a frontend project with no backend or database functionality. But that is something I could add at some later point stage if I wanted. 
 
 ## Learnings
