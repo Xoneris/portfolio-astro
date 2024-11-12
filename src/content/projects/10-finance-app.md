@@ -6,12 +6,9 @@ description: A Challenge from FrontendMentor.io. A finance management app. You c
 stack: [Angular, Tailwind CSS, Vercel]
 github: https://github.com/Xoneris/finance-app-frontend
 demo: https://finance-app-frontend-rho.vercel.app/
-wip: yes
+wip: no
 
 ---
-### Work In Progress
-This project is currently **NOT** finished and I'm still working on it. 
-It's like 85% done, just missing a lot of small but important details.
 
 ## Short description
 [Frontend Mentor](https://www.frontendmentor.io) is a website where developers can test their skills. They have a variety of different challanges ranging from easy to expert. If you start a challenge, you will be given a Figma file and the goal is to recreate the website with all it's functionality from the Figma file. It's up to you which technologies and tools you use. 
@@ -23,4 +20,4 @@ First major project I used Angular for. I learned the following:
 - The basics of Angular
 - Creating and using Angular components
 - How to use Modals in Angular
-- Basic reactivity in Angular
+- Reactivity in Angular
