@@ -9,7 +9,7 @@ interface Props {
     stack: Array<string>
 	github: string;
     demo: string;
-    wip: string;
+    wip: string|undefined;
 }
 
 const {title, slug, image, description, stack, wip} = Astro.props;
