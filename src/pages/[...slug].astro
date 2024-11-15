@@ -31,7 +31,7 @@ const { Content } = await project.render();
                   
               })}
             </div>
-            <Image src={"/projects/"+project.data.image} alt="Metroidvania.GG" width={720} height={540} class="rounded-xl border"/>
+            <Image src={"/projects/"+project.data.image} alt={project.data.title} width={720} height={540} class="rounded-xl border"/>
             <div class="content-description">
               <Content/>
             </div>
