@@ -1,13 +1,10 @@
 ---
-
 ---
-
 <div class="relative min-h-screen grow flex justify-center items-center" id="BlockContainer">   
     <slot/>
 </div>
 
 <style>
-
     @keyframes rotating {
         0% {
             transform: rotate(0);
@@ -19,56 +16,75 @@
             opacity: 0;
         }
     }
-
 </style>
 
 <script>
+    let interval:any 
+    let intervalRunning:boolean = false
 
-function test() {
-    const BlockContainer = document.getElementById("BlockContainer")
-    const newBlock = document.createElement("div");
+    function startInterval() {
+        if(!intervalRunning) {
+            interval = setInterval(() => createNewBlock(), 500)
+            intervalRunning = true
+        }
+    }
 
-    const windowWidth = window.innerWidth
+    function stopInterval() {
+        if(intervalRunning) {
+            clearInterval(interval)
+            intervalRunning = false
+        }
+    }
 
-    const randomSize = Math.round(Math.random() * (150 - 50) + 50)
-    const randomStart = Math.round(Math.random() * (windowWidth - 0) + 0)
-    const randomOpacity = Math.round(Math.random() * (75 - 25) + 25)
-    const randomDelay = Math.round(Math.random() * (5 - 0) + 0)
-    const randomDuration = Math.round(Math.random() * (15 - 5) + 5)
-    const randomBorderRadius = Math.round(Math.random() * (15 - 5) + 5)
+    function createNewBlock() {
+        const BlockContainer = document.getElementById("BlockContainer")
+        const newBlock = document.createElement("div");
 
-    newBlock.style.position = "absolute"
-    newBlock.style.bottom = "-40px"
-    newBlock.style.width = randomSize+"px"
-    newBlock.style.height = randomSize+"px"
-    newBlock.style.left = randomStart+"px"
-    newBlock.style.opacity = randomOpacity+"%"
-    newBlock.style.animationName = "rotating"
-    newBlock.style.animationTimingFunction = "linear"
-    newBlock.style.animationFillMode = "forwards"
-    newBlock.style.animationDelay = randomDelay+"s"
-    newBlock.style.animationDuration = randomDuration+"s"
-    newBlock.style.borderRadius = randomBorderRadius+"px"
-    newBlock.style.border = "1px solid white"
-    newBlock.style.boxShadow = "0 0 15px white"
-    newBlock.style.backgroundColor = "#64748b"
+        const windowWidth = window.innerWidth
 
-    BlockContainer?.appendChild(newBlock)
+        const randomSize = Math.round(Math.random() * (150 - 50) + 50)
+        const randomStart = Math.round(Math.random() * (windowWidth - 0) + 0)
+        const randomOpacity = Math.round(Math.random() * (75 - 25) + 25)
+        const randomDelay = Math.round(Math.random() * (5 - 1) + 1)
+        const randomDuration = Math.round(Math.random() * (15 - 5) + 5)
+        const randomBorderRadius = Math.round(Math.random() * (15 - 5) + 5)
 
-    // newBlock.addEventListener("animationstart", () => {
-    //     newBlock.addEventListener("click", () => {
-    //         newBlock.style.borderRadius = "9999px"
-    //     })
-    // })
+        newBlock.style.position = "absolute"
+        newBlock.style.bottom = "-40px"
+        newBlock.style.width = randomSize+"px"
+        newBlock.style.height = randomSize+"px"
+        newBlock.style.left = randomStart+"px"
+        newBlock.style.opacity = randomOpacity+"%"
+        newBlock.style.animationName = "rotating"
+        newBlock.style.animationTimingFunction = "linear"
+        newBlock.style.animationFillMode = "forwards"
+        newBlock.style.animationDelay = randomDelay+"s"
+        newBlock.style.animationDuration = randomDuration+"s"
+        newBlock.style.borderRadius = randomBorderRadius+"px"
+        newBlock.style.border = "1px solid white"
+        newBlock.style.boxShadow = "0 0 15px white"
+        newBlock.style.backgroundColor = "#64748b"
 
-    newBlock.addEventListener("animationend", () => {
-        newBlock.remove()
+        BlockContainer?.appendChild(newBlock)
+
+        // newBlock.addEventListener("animationstart", () => {
+        //     newBlock.addEventListener("click", () => {
+        //         newBlock.style.borderRadius = "9999px"
+        //     })
+        // })
+
+        newBlock.addEventListener("animationend", () => {
+            newBlock.remove()
+        })
+    }
+
+    document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+            stopInterval()
+        } else {
+            startInterval()
+        }
     })
-}
 
-
-
-    setInterval(() => test(), 500)
-
-
+    startInterval()
 </script>
