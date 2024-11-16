@@ -1,11 +1,13 @@
 ---
 import { Image } from 'astro:assets';
+import BackgroundAnimation from './BackgroundAnimation.astro';
 const email = "mailto:hello@kely.dev"
 ---
 
 <section class="flex justify-center items-center bg-slate-800 min-h-screen" id="About">
-    <div class="flex justify-around items-center w-full lg:w-3/5 rounded-xl flex-col lg:flex-row">
-        <Image src="/kely-avatar.png" alt="Kely picture" width={300} height={300} class="rounded-full p-2 border w-1/2 lg:w-1/3 hide"/>
+  <BackgroundAnimation>
+    <div class="flex justify-around items-center w-full lg:w-3/5 rounded-xl flex-col lg:flex-row z-50">
+        <Image src="/kely-avatar.png" alt="Kely picture" width={300} height={300} class="rounded-full p-2 border w-1/2 lg:w-1/3 "/>
         <div class="flex flex-col justify-around items-start w-4/5 sm:w-2/3 h-80 p-4">
             <p class="text-4xl font-bold">Hi, I am <span class="name-animation title-font text-5xl">Kely</span>!</p>
             <p class="text-xl">A <span class="name-animation font-bold">Frontend/Fullstack</span> developer from Switzerland. Passionate about creating frontends and learning about new technologies.</p>
@@ -28,6 +30,7 @@ const email = "mailto:hello@kely.dev"
             </ul>
         </div>
     </div>
+  </BackgroundAnimation>
 </section>
 
 <style>
