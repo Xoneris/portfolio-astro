@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import technologies from "../tech.json"
 
 interface Props {
 	title: string;
@@ -11,8 +12,27 @@ interface Props {
     demo: string;
     wip: string|undefined;
 }
+interface Tech {
+	Name: string,
+	Website: string,
+	Logo: string,
+}
 
 const {title, slug, image, description, stack, wip} = Astro.props;
+
+function filteredTechsWithProps(skills:Array<string>, technologies:Array<Tech>) {
+	
+	const skiilsOfThisProject:Tech[] = []
+	
+	for(let i=0 ; i<technologies.length ; i++ ) {
+		for(let j=0 ; j<skills.length ; j++) {
+			if(technologies[i].Name === skills[j]) {
+				skiilsOfThisProject.push(technologies[i])
+			}
+		}
+	}
+	return skiilsOfThisProject
+}
 ---
 
 <div class="flex flex-col  lg:w-2/5 w-full justify-between bg-slate-900 hide project border rounded-xl mb-12 ">
@@ -33,11 +53,13 @@ const {title, slug, image, description, stack, wip} = Astro.props;
         <p class="p-4 text-center">{description}</p>
         <div class="flex flex-col sm:flex-row gap-2 sm:gap-0 w-full justify-around items-center pt-2">
             <div class="flex items-center gap-2 rounded border p-2 bg-slate-800">
-                {stack.map((tech) => (
-                    <Image src={"/icons/"+tech+".svg"} alt={tech} width={24} height={24} title={tech}/>
-                ))}
+                {
+                    filteredTechsWithProps(stack, technologies).map((tech) => (
+                        <Image src={"/icons/"+tech.Logo} alt={tech.Name} width={24} height={24} title={tech.Name}/>
+                    ))
+                }
             </div>
-            <p><a href={"/"+slug} ><button class="border rounded p-2 bg-slate-800 hover:bg-slate-700">Learn More!</button></a></p>
+            <p><a href={"/"+slug}><button class="border rounded p-2 bg-slate-800 hover:bg-slate-700">Learn More!</button></a></p>
         </div>
     </div>
 </div>

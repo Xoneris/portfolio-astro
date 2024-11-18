@@ -1,5 +1,6 @@
 ---
 import SkillsSubsection from './SkillsSubsection.astro';
+import technologies from "../tech.json"
 ---
 
 <section class="flex justify-center items-center flex-col bg-slate-700 min-h-screen border-t-2 border-b-2 border-white" id="Skills">
@@ -8,24 +9,23 @@ import SkillsSubsection from './SkillsSubsection.astro';
 
         <SkillsSubsection
             title="Programing Languages"
-            stack={["HTML5", "CSS3", "JavaScript", "TypeScript", "PHP", "Python"]}
+            skills={["HTML5", "CSS3", "JavaScript", "TypeScript", "PHP", "Python"]}
         />
-        
         <SkillsSubsection
             title="Frontend"
-            stack={["React", "Next.js","Vue.js", "Angular", "Astro", "Tailwind CSS", "Sass", "Bootstrap"]}
+            skills={["React", "Next.js","Vue.js", "Angular", "Astro", "Tailwind CSS", "Sass", "Bootstrap"]}
         />
         <SkillsSubsection
             title="Backend"
-            stack={["Django", "Laravel", "Drizzle ORM", "MySQL", "PostgreSQL", "Vercel"]}
+            skills={["Django", "Laravel", "Drizzle ORM", "MySQL", "PostgreSQL", "Vercel"]}
         />
         <SkillsSubsection
             title="Content Management Systems"
-            stack={["WordPress", "TYPO3"]}
+            skills={["WordPress", "TYPO3"]}
         />
         <SkillsSubsection
             title="Development Tools"
-            stack={["Git", "GitHub", "VSCode", "Figma"]}
+            skills={["Git", "GitHub", "VSCode", "Figma"]}
         />
     </div>
 </section>

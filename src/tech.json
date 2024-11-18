@@ -1,0 +1,138 @@
+[
+    {
+        "Name": "HTML5",
+        "Website": "https://en.wikipedia.org/wiki/HTML",
+        "Logo": "HTML5.svg"
+    },
+    {
+        "Name": "CSS3",
+        "Website": "https://en.wikipedia.org/wiki/CSS",
+        "Logo": "CSS3.svg"
+    },
+    {
+        "Name": "JavaScript",
+        "Website": "https://en.wikipedia.org/wiki/JavaScript",
+        "Logo": "JavaScript.svg"
+    },
+    {
+        "Name": "TypeScript",
+        "Website": "https://www.typescriptlang.org",
+        "Logo": "TypeScript.svg"
+    },
+    {
+        "Name": "PHP",
+        "Website": "https://www.php.net",
+        "Logo": "PHP.svg"
+    },
+    {
+        "Name": "Python",
+        "Website": "https://www.python.org",
+        "Logo": "Python.svg"
+    },
+
+
+    {   
+        "Name": "React",
+        "Website": "https://react.dev",
+        "Logo": "React.svg"
+    },
+    {
+    "Name": "Next.js",
+        "Website": "https://nextjs.org",
+        "Logo": "Next.js.svg"
+    },
+    {
+        "Name": "Vue.js",
+        "Website": "https://vuejs.org",
+        "Logo": "Vue.js.svg"
+    },
+    {
+        "Name": "Angular",
+        "Website": "https://angular.dev",
+        "Logo": "Angular.svg"
+    },
+    {
+        "Name": "Astro",
+        "Website": "https://astro.build",
+        "Logo": "Astro.svg"
+    },
+    {
+        "Name": "Tailwind CSS",
+        "Website": "https://tailwindcss.com",
+        "Logo": "TailwindCSS.svg"
+    },
+    {
+        "Name": "Sass",
+        "Website": "https://sass-lang.com",
+        "Logo": "Sass.svg"
+    },
+    {
+        "Name": "Bootstrap",
+        "Website": "https://getbootstrap.com",
+        "Logo": "Bootstrap.svg"
+    },
+
+    {
+        "Name": "Django",
+        "Website": "https://www.djangoproject.com",
+        "Logo": "Django.svg"
+    },
+    {
+        "Name": "Laravel",
+        "Website": "https://laravel.com",
+        "Logo": "Laravel.svg"
+    },
+    {
+        "Name": "Drizzle ORM",
+        "Website": "https://orm.drizzle.team",
+        "Logo": "DrizzleORM.svg"
+    },
+    {
+        "Name": "MySQL",
+        "Website": "https://www.mysql.com",
+        "Logo": "MySQL.svg"
+    },
+    {
+        "Name": "PostgreSQL",
+        "Website": "https://www.postgresql.org",
+        "Logo": "PostgreSQL.svg"
+    },
+    {
+        "Name": "Vercel",
+        "Website": "https://vercel.com",
+        "Logo": "Vercel.svg"
+    },
+
+    {
+        "Name": "WordPress",
+        "Website": "https://wordpress.org",
+        "Logo": "WordPress.svg"
+    },
+    {
+        "Name": "TYPO3",
+        "Website": "https://typo3.org",
+        "Logo": "TYPO3.svg"
+    },
+
+
+    {
+        "Name": "Git",
+        "Website": "https://git-scm.com",
+        "Logo": "Git.svg"
+    },
+    {
+        "Name": "GitHub",
+        "Website": "https://github.com",
+        "Logo": "GitHub.svg"
+    },
+    {
+        "Name": "VSCode",
+        "Website": "https://code.visualstudio.com",
+        "Logo": "VSCode.svg"
+    },
+    {
+        "Name": "Figma",
+        "Website": "https://www.figma.com",
+        "Logo": "Figma.svg"
+    }
+]

@@ -32,11 +32,12 @@
     }
 
     @keyframes plop {
-        0 {
-            transform: scale(1);
+        0% {
+            transform: scale(1);            
         }
         100% {
             transform: scale(1.4);
+            border-radius: 9999px;
             opacity: 0;
         }
     }
@@ -45,10 +46,16 @@
 <script>
     let interval:any 
     let intervalRunning:boolean = false
+    let windowWidth = window.innerWidth
+
+    window.addEventListener("resize", () => {
+        windowWidth = window.innerWidth
+    })
 
     function startInterval() {
         if(!intervalRunning) {
-            interval = setInterval(() => createNewBlock(), 500)
+            // interval = setInterval(() => createNewBlock(), 2500)
+            interval = setInterval(() => createNewBlock(), (-1.307 * windowWidth + 3009.44))
             intervalRunning = true
         }
     }
@@ -60,11 +67,45 @@
         }
     }
 
+    function getCurrentCSSProperties(newBlock:any) {
+
+        const computedStyle:CSSStyleDeclaration = window.getComputedStyle(newBlock);
+
+        // Get the current transform property (if it exists)
+        const transform:any = computedStyle.transform;
+
+        // Default values
+        let currentBottom:string = computedStyle.bottom
+        let currentOpacity:string = computedStyle.opacity
+        let currentRotation:number = 0;
+
+        // Parse the 'transform' matrix to extract rotation
+        if (transform && transform !== 'none') {
+            const matrixValues = transform.match(/matrix\(([^)]+)\)/)[1].split(', ');
+
+            // Extract the matrix components for rotation calculation
+            const a = parseFloat(matrixValues[0]); // cos(theta)
+            const b = parseFloat(matrixValues[1]); // sin(theta)
+
+            // Calculate the rotation in degrees
+            currentRotation = Math.round(Math.atan2(b, a) * (180 / Math.PI));
+            if (currentRotation < 0) {
+            currentRotation += 360; // Normalize to 0-360 degrees
+            }
+        }
+
+        return {
+            bottom: currentBottom,
+            opacity: currentOpacity,
+            rotation: currentRotation
+        }
+    }
+
     function createNewBlock() {
         const BlockContainer = document.getElementById("BlockContainer")
         const newBlock = document.createElement("div");
 
-        const windowWidth = window.innerWidth
+        
 
         const randomSize = Math.round(Math.random() * (150 - 50) + 50)
         const randomStart = Math.round(Math.random() * (windowWidth - 0) + 0)
@@ -73,7 +114,7 @@
         const randomDuration = Math.round(Math.random() * (15 - 5) + 5)
         const randomBorderRadius = Math.round(Math.random() * (15 - 5) + 5)
 
-        newBlock.style.position = "absolute"
+        newBlock.style.position = "fixed"
         newBlock.style.bottom = "-40px"
         newBlock.style.border = "1px solid white"
         newBlock.style.boxShadow = "0 0 15px white"
@@ -84,64 +125,47 @@
         newBlock.style.opacity = randomOpacity+"%"
         newBlock.style.borderRadius = randomBorderRadius+"px"
 
-        // newBlock.style.animationName = "rotating"
-        //     newBlock.style.animationTimingFunction = "linear"
-        //     newBlock.style.animationFillMode = "both"
-        //     newBlock.style.animationDelay = randomDelay+"s"
-        //     newBlock.style.animationDuration = randomDuration+"s"
-
         newBlock.style.animationName = "movingUp";
         newBlock.style.animationTimingFunction = "linear"
         newBlock.style.animationFillMode = "both"
         newBlock.style.animationDuration = "1.5s"
 
+        BlockContainer?.appendChild(newBlock)
+
         newBlock.addEventListener("animationend", () => {
-            // newBlock.remove()
 
             newBlock.style.animationName = "rotating"
             newBlock.style.animationTimingFunction = "linear"
-            newBlock.style.animationFillMode = "both"
+            newBlock.style.animationFillMode = "forwards"
             newBlock.style.animationDelay = randomDelay+"s"
             newBlock.style.animationDuration = randomDuration+"s"
 
-            // newBlock.addEventListener("animationend", () => {
+            newBlock.addEventListener("click", () => {
                 
-                // newBlock.style.animationPlayState = 'paused';
+                newBlock.style.animationPlayState = "paused"
 
+                const { bottom, opacity, rotation } = getCurrentCSSProperties(newBlock);
+                newBlock.style.bottom = bottom
+                newBlock.style.opacity = opacity
+                newBlock.style.rotate = rotation+"deg"
 
-                // newBlock.style.animationName = "plop"
-                // newBlock.style.animationTimingFunction = "linear"
-                // newBlock.style.animationFillMode = "both"
-                // newBlock.style.animationDuration = "0.3s"
-                // newBlock.style.animationDelay = "0s"
-
-                // newBlock.style.animationPlayState = 'running';
+                new Audio("/plop-sound.mp3").play()
+                newBlock.style.animationName = "plop"
+                newBlock.style.animationTimingFunction = "linear"
+                newBlock.style.animationFillMode = "both"
+                newBlock.style.animationDuration = "0.2s"
+                newBlock.style.animationDelay = "0s"
                 
-                // new Audio("/plop-sound.mp3").play()
+                newBlock.style.animationPlayState = "running"
 
-                // newBlock.addEventListener("animationend", () => {
-                //     newBlock.remove()
-                // })
-            // })
-
-            // newBlock.addEventListener("animationend", () => {
-            //     newBlock.remove()
-            // })
+                newBlock.addEventListener("animationend", () => {
+                    newBlock.remove()
+                })
+            })
+            newBlock.addEventListener("animationend", () => {
+                newBlock.remove()
+            })
         })
-        
-        
-
-        BlockContainer?.appendChild(newBlock)
-
-        // newBlock.addEventListener("animationstart", () => {
-        //     newBlock.addEventListener("click", () => {
-        //         newBlock.style.borderRadius = "9999px"
-        //     })
-        // })
-
-        // newBlock.addEventListener("animationend", () => {
-        //     newBlock.remove()
-        // })
     }
 
     document.addEventListener("visibilitychange", () => {
@@ -153,4 +177,6 @@
     })
 
     startInterval()
+
+
 </script>
