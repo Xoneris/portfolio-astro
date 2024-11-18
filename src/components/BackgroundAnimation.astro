@@ -31,9 +31,21 @@
         }
     }
 
+    @keyframes rotating_back {
+        0% {
+            transform: rotate(0);
+            
+        }
+        100% {
+            transform: rotate(-360deg);
+            bottom: 1000px;
+            opacity: 0;
+        }
+    }
+
     @keyframes plop {
         0% {
-            transform: scale(1);            
+            transform: scale(0.5);            
         }
         100% {
             transform: scale(1.4);
@@ -134,7 +146,15 @@
 
         newBlock.addEventListener("animationend", () => {
 
-            newBlock.style.animationName = "rotating"
+            const randomOfTwo = Math.round(Math.random() * 1) + 1
+            if (randomOfTwo === 1){
+
+                newBlock.style.animationName = "rotating"
+            } else if (randomOfTwo === 2) {
+
+                newBlock.style.animationName = "rotating_back"
+            }
+
             newBlock.style.animationTimingFunction = "linear"
             newBlock.style.animationFillMode = "forwards"
             newBlock.style.animationDelay = randomDelay+"s"
