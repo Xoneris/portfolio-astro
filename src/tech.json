@@ -52,6 +52,11 @@
         "Logo": "Angular.svg"
     },
     {
+        "Name": "Svelte",
+        "Website": "https://svelte.dev",
+        "Logo": "Svelte.svg"
+    },
+    {
         "Name": "Astro",
         "Website": "https://astro.build",
         "Logo": "Astro.svg"
