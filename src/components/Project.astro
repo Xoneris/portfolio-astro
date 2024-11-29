@@ -20,6 +20,8 @@ interface Tech {
 
 const {title, slug, image, description, stack, wip} = Astro.props;
 
+// Filters through the tech.json file to only put those technologies 
+// that get transmitted via props in a array to display
 function filteredTechsWithProps(skills:Array<string>, technologies:Array<Tech>) {
 	
 	const skiilsOfThisProject:Tech[] = []
