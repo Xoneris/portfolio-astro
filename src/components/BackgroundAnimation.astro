@@ -63,8 +63,18 @@
 
     function startInterval() {
         if(!intervalRunning) {
-            // interval = setInterval(() => createNewBlock(), 2500)
-            interval = setInterval(() => createNewBlock(), (-1.307 * windowWidth + 3009.44))
+
+            let intervalDuration:number = 0
+
+            if(windowWidth <= 500) {
+                intervalDuration = 2000
+            } else if(windowWidth >= 2000) {
+                intervalDuration = 1000
+            } else {
+                intervalDuration = 1500
+            }
+
+            interval = setInterval(() => createNewBlock(), intervalDuration)
             intervalRunning = true
         }
     }
@@ -114,14 +124,19 @@
         const BlockContainer = document.getElementById("BlockContainer")
         const newBlock = document.createElement("div");
 
-        const randomSize = Math.round(Math.random() * (150 - 50) + 50)
+        let randomSize:number
+        if (windowWidth <= 500) {
+            randomSize = Math.round(Math.random() * (100 - 50) + 50)
+        } else {
+            randomSize = Math.round(Math.random() * (150 - 50) + 50)
+        }
         const randomStart = Math.round(Math.random() * (windowWidth - 0) + 0)
         const randomOpacity = Math.round(Math.random() * (75 - 25) + 25)
         const randomDelay = Math.round(Math.random() * (5 - 1) + 1)
         const randomDuration = Math.round(Math.random() * (15 - 5) + 5)
         const randomBorderRadius = Math.round(Math.random() * (15 - 5) + 5)
 
-        const randomLogo = Math.round(Math.random() * technologies.length) + 1
+        // const randomLogo = Math.round(Math.random() * technologies.length) + 1
 
         newBlock.style.position = "fixed"
         newBlock.style.bottom = "-40px"
@@ -135,10 +150,9 @@
         newBlock.style.borderRadius = randomBorderRadius+"px"
 
         // newBlock.style.backgroundImage = "url('/icons/"+technologies[randomLogo].Logo+"')"
-
-        newBlock.style.backgroundRepeat = "no-repeat"
-        newBlock.style.backgroundPosition = "center"
-        newBlock.style.backgroundSize = "contain"
+        // newBlock.style.backgroundRepeat = "no-repeat"
+        // newBlock.style.backgroundPosition = "center"
+        // newBlock.style.backgroundSize = "contain"
 
         newBlock.style.animationName = "movingUp";
         newBlock.style.animationTimingFunction = "linear"
