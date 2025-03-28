@@ -103,9 +103,24 @@
         "Logo": "PostgreSQL.svg"
     },
     {
+        "Name": "SQLite",
+        "Website": "https://www.sqlite.org",
+        "Logo": "SQLite.svg"
+    },
+    {
         "Name": "Vercel",
         "Website": "https://vercel.com",
         "Logo": "Vercel.svg"
+    },
+    {
+        "Name": "Supabase",
+        "Website": "https://supabase.com",
+        "Logo": "Supabase.svg"
+    },
+    {
+        "Name": "DigitalOcean",
+        "Website": "https://www.digitalocean.com",
+        "Logo": "DigitalOcean.svg"
     },
 
     {
