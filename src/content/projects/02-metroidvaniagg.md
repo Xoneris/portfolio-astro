@@ -1,7 +1,7 @@
 ---
 title: Metroidvania.GG
 image: metroidvaniagg.png
-description: My passion project. A information hub for the subgene of videogames called 'Metroidvanias'. A website with React and Laravel hosted on my own VPS on DigitalOcean. 
+description: My passion project. A information hub for the subgene of videogames called 'Metroidvanias'. Made with React and Laravel hosted on my own VPS on DigitalOcean. 
 stack: [React, Laravel, Tailwind CSS, SQLite, DigitalOcean]
 github: https://github.com/Xoneris/metroidvania.gg
 demo: https://metroidvania.gg

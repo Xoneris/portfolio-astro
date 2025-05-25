@@ -2,7 +2,7 @@
 
 title: Space Tourism
 image: space-tourism.png
-description: A Challenge from frontendmentor.io. A simple website with interactive elements and informational content about space travel. 
+description: A Challenge from frontendmentor.io. A simple website with interactive elements and informational content about space travel. The goal of this project was to learn the basics of Vue and Sass.
 stack: [Vue.js, Sass, Vercel]
 github: https://github.com/Xoneris/frontend-mentor-space_tourism
 demo: https://fmspace-tourism-xoneris-projects.vercel.app

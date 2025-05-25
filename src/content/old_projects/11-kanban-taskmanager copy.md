@@ -2,10 +2,10 @@
 
 title: Kanban Taskmanager
 image: kanban-taskmanager.png
-description: A Challenge from FrontendMentor.io. A Taskmanagement app. You can create multiple boards, columns, tasks and subtasks to organise your projects. The goal of this project was to refresh and deepen my knowledge of Vue
-stack: [Vue.js, Tailwind CSS, Vercel]
+description: A Challenge from FrontendMentor.io. A Taskmanagement app. You can create multiple boards, columns, tasks and subtasks to organise your projects. 
+stack: [Next.js, Drizzle ORM, PostgreSQL, Tailwind CSS, Vercel]
 github: https://github.com/Xoneris/frontend-mentor-kanban-taskmanager
-demo: https://frontend-mentor-kanban-task-manager-91le.vercel.app
+demo: none
 wip: yes
 
 ---

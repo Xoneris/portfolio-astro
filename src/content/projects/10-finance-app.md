@@ -2,7 +2,7 @@
 
 title: Finance App Frontend
 image: finance-app.png
-description: A Challenge from FrontendMentor.io. A finance management app. You can create budgets, pots and oversee your transactions. 
+description: A Challenge from FrontendMentor.io. A finance management app. You can create budgets, pots and oversee your transactions. The main goal of this project was to learn Angular 
 stack: [Angular, Tailwind CSS, Vercel]
 github: https://github.com/Xoneris/finance-app-frontend
 demo: https://finance-app-frontend-rho.vercel.app/

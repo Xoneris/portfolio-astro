@@ -18,7 +18,7 @@ interface Tech {
 	Logo: string,
 }
 
-const {title, slug, image, description, stack, wip} = Astro.props;
+const {title, slug, image, description, stack, wip, demo, github} = Astro.props;
 
 // Filters through the tech.json file to only put those technologies 
 // that get transmitted via props in a array to display
@@ -40,7 +40,7 @@ function filteredTechsWithProps(skills:Array<string>, technologies:Array<Tech>) 
 <div class="flex flex-col  lg:w-2/5 w-full justify-between bg-slate-900 hide project border rounded-xl mb-12 ">
     <p class="font-bold text-2xl text-center p-2">{title}</p>
     <div class=" rounded-xl border m-2 relative transition-all hover:scale-110 hover:-rotate-3">
-        <a href={"/"+slug}>
+        <a href={demo} target="_blank">
             {
                 wip === "yes"
                 ? <div class="absolute top-0 right-0 p-1 w-36 h-9 mt-1 mr-1 bg-red-600 bg-opacity-60 rounded-lg flex justify-center items-center text-white ">
@@ -50,18 +50,34 @@ function filteredTechsWithProps(skills:Array<string>, technologies:Array<Tech>) 
             }
             <Image src={"/projects/"+image} alt={slug} width={720} height={540} class="rounded-xl w-full">
         </a>
-    </div> 
+    </div>
+    <div class="flex m-auto">
+        <div class="m-2 flex items-center gap-2 rounded border p-2 bg-slate-800">
+            {
+                filteredTechsWithProps(stack, technologies).map((tech) => (
+                    <Image src={"/icons/"+tech.Logo} alt={tech.Name} width={24} height={24} title={tech.Name}/>
+                ))
+            }
+        </div>
+    </div>
     <div class="flex flex-col justify-between items-center p-2 w-full rounded-xl h-full project-description">
         <p class="p-4 text-center">{description}</p>
         <div class="flex flex-col sm:flex-row gap-2 sm:gap-0 w-full justify-around items-center pt-2">
-            <div class="flex items-center gap-2 rounded border p-2 bg-slate-800">
-                {
-                    filteredTechsWithProps(stack, technologies).map((tech) => (
-                        <Image src={"/icons/"+tech.Logo} alt={tech.Name} width={24} height={24} title={tech.Name}/>
-                    ))
-                }
+            
+            <div class="flex w-full justify-center items-center gap-4">
+                <p><a href={github} target="_blank">
+                    <button class="border rounded ml-2 p-2 bg-slate-800 hover:bg-slate-700">
+                      Inspect the Code!
+                    </button>
+                </a></p>
+                { demo !== "none" 
+                  ? <p><a href={demo} target="_blank">
+                        <button class="border rounded ml-2 p-2 bg-slate-800 hover:bg-slate-700">See it Live!</button>
+                    </a></p> 
+                  : null }
             </div>
-            <p><a href={"/"+slug}><button class="border rounded p-2 bg-slate-800 hover:bg-slate-700">Learn More!</button></a></p>
+            
+            <!-- <p><a href={"/"+slug}><button class="border rounded p-2 bg-slate-800 hover:bg-slate-700">Learn More!</button></a></p> -->
         </div>
     </div>
 </div>
