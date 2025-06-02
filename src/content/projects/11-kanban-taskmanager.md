@@ -6,7 +6,7 @@ description: A Challenge from FrontendMentor.io. A Taskmanagement app. You can c
 stack: [Vue.js, Tailwind CSS, Vercel]
 github: https://github.com/Xoneris/frontend-mentor-kanban-taskmanager
 demo: https://frontend-mentor-kanban-task-manager-91le.vercel.app
-wip: yes
+wip: no
 
 ---
 ### Work In Progress
