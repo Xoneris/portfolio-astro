@@ -67,11 +67,11 @@
             let intervalDuration:number = 0
 
             if(windowWidth <= 500) {
-                intervalDuration = 2000
+                intervalDuration = 750
             } else if(windowWidth >= 2000) {
-                intervalDuration = 1000
+                intervalDuration = 250
             } else {
-                intervalDuration = 1500
+                intervalDuration = 500
             }
 
             interval = setInterval(() => createNewBlock(), intervalDuration)
