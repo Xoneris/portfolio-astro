@@ -1,41 +1,43 @@
 ---
 import { Image } from 'astro:assets';
-import technologies from "../tech.json"
 
 interface Props {
 	title: string;
-	skills: Array<string>
+	skills: Tech[]
 }
+
 interface Tech {
 	Name: string,
-	Website: string,
-	Logo: string,
+	Link: string,
+	Logo: any,
 }	
 
 const {title, skills} = Astro.props;
 
 // Filters through the tech.json file to only put those technologies 
 // that get transmitted via props in a array to display
-function filteredTechsWithProps(skills:Array<string>, technologies:Array<Tech>) {
-	
-	const skiilsOfThisSection:Tech[] = []
 
-	for(let i=0 ; i<technologies.length ; i++ ) {
-		for(let j=0 ; j<skills.length ; j++) {
-			if(technologies[i].Name === skills[j]) {
-				skiilsOfThisSection.push(technologies[i])
-			}
-		}
-	}
-	return skiilsOfThisSection
-}
+
+// function filteredTechsWithProps(skills:Array<string>, technologies:Array<Tech>) {
+	
+// 	const skiilsOfThisSection:Tech[] = []
+
+// 	for(let i=0 ; i<technologies.length ; i++ ) {
+// 		for(let j=0 ; j<skills.length ; j++) {
+// 			if(technologies[i].Name === skills[j]) {
+// 				skiilsOfThisSection.push(technologies[i])
+// 			}
+// 		}
+// 	}
+// 	return skiilsOfThisSection
+// }
 
 ---
 
 <div class="border rounded-xl w-4/5 sm:w-2/3 p-2 m-8 bg-slate-900 skew-x-0 sm:skew-x-12 hide">
     <p class="text-xl font-bold mb-2 border-b -skew-x-0 sm:-skew-x-12">{title}</p>
     <div class="flex justify-evenly items-center w-full flex-wrap -skew-x-0 sm:-skew-x-12">
-		{ 
+		<!-- { 
 			filteredTechsWithProps(skills, technologies).map((tech) => (
 				<a href={tech.Website} target="_blank">
 					<div class="flex flex-col justify-end width-100 [&>*]:m-auto group">
@@ -44,15 +46,28 @@ function filteredTechsWithProps(skills:Array<string>, technologies:Array<Tech>) 
 					</div>
 				</a>
        		))
+		} -->
+		{
+			skills.map((tech) => (
+				<a href={tech.Link} target="_blank">
+					<div class="flex flex-col justify-end w-[100px] [&>*]:m-auto group">
+						<Image 
+							src={tech.Logo.url} 
+							alt={tech.Name} 
+							width={60} 
+							height={60} 
+							title={tech.Name} 
+							class="transition-all group-hover:scale-110 group-hover:-rotate-6" 
+						/>
+						<b class="transition-all group-hover:text-white">{tech.Name}</b>
+					</div>
+				</a>
+			))
 		}
     </div>
 </div>
 
 <style>
-	.width-100 {
-		width: 100px;
-	}
-
 	.hide {
 		opacity: 0;
 		/* transform: translateX(-100%); */

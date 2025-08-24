@@ -1,12 +1,39 @@
 ---
 import SkillsSubsection from './SkillsSubsection.astro';
+
+const responds = await fetch("https://tasteful-cat-7103adb7c5.strapiapp.com/api/skill?populate[SkillBoxes][populate][Skills][populate]=Logo")
+const data = await responds.json()
+const SkillBoxes = data.data.SkillBoxes
+
 ---
 
 <section class="flex justify-center items-center flex-col bg-slate-700 min-h-screen border-t-2 border-b-2 border-white" id="Skills">
     <p class="text-6xl font-bold m-6 title-font underline">Skills</p>
     <div class="flex flex-col gap-0 w-full justify-around items-center">
 
-        <SkillsSubsection
+        <!-- {
+            data.data.SkillBoxes.map((skills:any) => (
+                <p>{skills.Name}</p>
+                <div>
+                    {skills.Skills.map((skill:any) => (
+                        <p>{skill.Name}</p>
+                    ))}
+                </div>
+            ))
+        } -->
+
+        {
+            SkillBoxes.map((skillBox:any) => (
+                <SkillsSubsection 
+                    title={skillBox.Name}
+                    skills={skillBox.Skills}
+                />
+            ))
+        }
+
+        
+
+        <!-- <SkillsSubsection
             title="Programming Languages"
             skills={["HTML5", "CSS3", "JavaScript", "TypeScript", "PHP", "Python"]}
         />
@@ -25,6 +52,7 @@ import SkillsSubsection from './SkillsSubsection.astro';
         <SkillsSubsection
             title="Development Tools"
             skills={["Git", "GitHub", "VSCode", "Figma", ]}
-        />
+        /> -->
+
     </div>
 </section>

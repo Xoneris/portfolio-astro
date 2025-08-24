@@ -1,24 +1,44 @@
 ---
 import Project from '../components/Project.astro';
-import { getCollection } from 'astro:content';
+// import { getCollection } from 'astro:content';
 
-const allProjects = await getCollection('projects');
+// const allProjects = await getCollection('projects');
+
+const res = await fetch("https://tasteful-cat-7103adb7c5.strapiapp.com/api/project?populate[Projects][populate]=Tech&populate[Projects][populate]=Thumbnail")
+const data = await res.json()
+const projects = data.data.Projects
 ---
 
 <section class="flex flex-col justify-around items-center pb-4 pt-12 bg-slate-800 min-h-screen" id="Projects">
     <p class="text-6xl font-bold mb-6 mt-3 title-font underline">Projects</p>
     <div class="flex flex-wrap w-4/5 xl:w-2/3 justify-around">
-        {allProjects.map((project) => (
-            <Project 
-                title={project.data.title}
-                slug={project.slug}
-                image={project.data.image}
-                description={project.data.description}
-                stack={project.data.stack}
-                github={project.data.github}
-                demo={project.data.demo}
-                wip={project.data.wip}
-            />
-        ))}
+        <!-- {
+            allProjects.map((project) => (
+                <Project 
+                    title={project.data.title}
+                    slug={project.slug}
+                    image={project.data.image}
+                    description={project.data.description}
+                    stack={project.data.stack}
+                    github={project.data.github}
+                    demo={project.data.demo}
+                    wip={project.data.wip}
+                />
+            ))
+        } -->
+        {
+            projects.map((project:any) => (
+                <Project 
+                    title={project.Title}
+                    slug={project.Slug}
+                    image={project.Thumbnail.formats.large.url}
+                    description={project.Description}
+                    stack={project.Tech}
+                    github={project.Github}
+                    demo={project.Website}
+                    wip={project.WIP}
+                />
+            ))
+        }
     </div>
 </section>

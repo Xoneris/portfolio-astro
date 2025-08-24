@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import technologies from "../tech.json"
+// import technologies from "../tech.json"
 
 interface Props {
 	title: string;
@@ -10,7 +10,8 @@ interface Props {
     stack: Array<string>
 	github: string;
     demo: string;
-    wip: string|undefined;
+    // wip: string|undefined;
+    wip: boolean;
 }
 interface Tech {
 	Name: string,
@@ -37,25 +38,43 @@ function filteredTechsWithProps(skills:Array<string>, technologies:Array<Tech>) 
 }
 ---
 
-<div class="flex flex-col  lg:w-2/5 w-full justify-between bg-slate-900 hide project border rounded-xl mb-12 ">
+<div class="flex flex-col lg:w-2/5 w-full justify-between bg-slate-900 hide project border rounded-xl mb-12 ">
     <p class="font-bold text-2xl text-center p-2">{title}</p>
     <div class=" rounded-xl border m-2 relative transition-all hover:scale-110 hover:-rotate-3">
         <a href={demo} target="_blank">
             {
-                wip === "yes"
+                wip === true
                 ? <div class="absolute top-0 right-0 p-1 w-36 h-9 mt-1 mr-1 bg-red-600 bg-opacity-60 rounded-lg flex justify-center items-center text-white ">
                     Work in Progress
                 </div>
                 : null
             }
-            <Image src={"/projects/"+image} alt={slug} width={720} height={540} class="rounded-xl w-full">
+            <!-- <Image src={"/projects/"+image} alt={slug} width={720} height={540} class="rounded-xl w-full"> -->
+            <Image 
+                src={image} 
+                alt={slug} 
+                width={720} 
+                height={540} 
+                class="rounded-xl w-full"
+            />
         </a>
     </div>
     <div class="flex m-auto">
         <div class="m-2 flex items-center gap-2 rounded border p-2 bg-slate-800">
-            {
+            <!-- {
                 filteredTechsWithProps(stack, technologies).map((tech) => (
                     <Image src={"/icons/"+tech.Logo} alt={tech.Name} width={24} height={24} title={tech.Name}/>
+                ))
+            } -->
+            {
+                stack.map((tech:any) => (
+                    <Image 
+                        src={tech.url} 
+                        alt={tech.name} 
+                        width={24} 
+                        height={24} 
+                        title={tech.name}
+                    />
                 ))
             }
         </div>
@@ -70,11 +89,13 @@ function filteredTechsWithProps(skills:Array<string>, technologies:Array<Tech>) 
                       Inspect the Code!
                     </button>
                 </a></p>
-                { demo !== "none" 
-                  ? <p><a href={demo} target="_blank">
-                        <button class="border rounded ml-2 p-2 bg-slate-800 hover:bg-slate-700">See it Live!</button>
+                { 
+                    demo !== "" 
+                    ? <p><a href={demo} target="_blank">
+                            <button class="border rounded ml-2 p-2 bg-slate-800 hover:bg-slate-700">See it Live!</button>
                     </a></p> 
-                  : null }
+                    : null 
+                }
             </div>
             
             <!-- <p><a href={"/"+slug}><button class="border rounded p-2 bg-slate-800 hover:bg-slate-700">Learn More!</button></a></p> -->
